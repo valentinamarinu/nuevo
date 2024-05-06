@@ -2,13 +2,14 @@ package com.campusConnect.CampusConnect.domain.entities.debiles;
 
 import java.util.List;
 
-import com.campusConnect.CampusConnect.domain.entities.fuertes.Usuario;
 import com.campusConnect.CampusConnect.domain.entities.intermedias.Clase;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
@@ -19,16 +20,13 @@ import lombok.ToString;
 
 @Entity(name = "profesor")
 @Data
-@EqualsAndHashCode(callSuper=false)
 @AllArgsConstructor
 @NoArgsConstructor
-public class Profesor extends Usuario {
+public class Profesor {
     /* Atributos */
     @Id
-    @Override
-    public String getIdUsuario() {
-        return super.getIdUsuario();
-    }
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long idProfesor;
 
     @Column(nullable = false)
     private String hojaVida;
@@ -38,4 +36,7 @@ public class Profesor extends Usuario {
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     private List<Clase> clases;
+
 }
+
+

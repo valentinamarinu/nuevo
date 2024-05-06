@@ -38,5 +38,5 @@ public class Asistencia {
     /* Relación con la tabla Clases */
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "clase_id", referencedColumnName = "idClase")
-    private Clase clase;
+    private Clase claseId;
 }

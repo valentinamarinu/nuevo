@@ -11,6 +11,8 @@ import jakarta.persistence.EnumType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -40,7 +42,7 @@ public class Usuario {
     @Column(nullable = false)
     private Integer edad;
     
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false)
     private String correo;
 
     @Column(nullable = false)
@@ -49,7 +51,21 @@ public class Usuario {
     @Enumerated(EnumType.STRING)
     private Rol rol;
 
-    /* REVISAR BIEN SUGERENCIA DE KEVIN */
+    /* REVISAR BIEN SUGERENCIA DE KEVIN, subir imagen y una api que pase eso a url*/
     private String foto;
 
+    /* Relación tabla Profesor */
+    @OneToOne
+    @JoinColumn(name = "profesor_id", referencedColumnName = "idProfesor")
+    private Long profesorId;
+
+    /* Relación tabla Administrador */
+    @OneToOne
+    @JoinColumn(name = "administrador_id", referencedColumnName = "idAdministrador")
+    private Long administradorId;
+
+    /* Relación tabla Estudiante */
+    @OneToOne
+    @JoinColumn(name = "estudiante_id", referencedColumnName = "idEstudiante")
+    private Long estudianteId;
 }

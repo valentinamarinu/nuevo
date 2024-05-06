@@ -33,5 +33,5 @@ public class Actividad {
     /* Relación con tabla Clase */
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "clase_id", referencedColumnName = "idClase")
-    private Clase clase;
+    private Clase claseId;
 }

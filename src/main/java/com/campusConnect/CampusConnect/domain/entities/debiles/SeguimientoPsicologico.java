@@ -17,7 +17,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity(name = "seguimientoPsicologico")
+@Entity(name = "seguimiento_psicologico")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -34,6 +34,6 @@ public class SeguimientoPsicologico {
 
     /* Relación con la tabla Estudiante */
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "estudiante_id", referencedColumnName = "idUsuario")
-    private Estudiante estudiante;
+    @JoinColumn(name = "estudiante_id", referencedColumnName = "idEstudiante")
+    private Estudiante estudianteId;
 }

@@ -3,12 +3,13 @@ package com.campusConnect.CampusConnect.domain.entities.debiles;
 import java.util.List;
 
 import com.campusConnect.CampusConnect.domain.entities.fuertes.Grupo;
-import com.campusConnect.CampusConnect.domain.entities.fuertes.Usuario;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -21,16 +22,13 @@ import lombok.ToString;
 
 @Entity(name = "estudiante")
 @Data
-@EqualsAndHashCode(callSuper = false)
 @AllArgsConstructor
 @NoArgsConstructor
-public class Estudiante extends Usuario {
+public class Estudiante {
     /* Atributos */
     @Id
-    @Override
-    public String getIdUsuario(){
-        return super.getIdUsuario();
-    }
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long idEstudiante;
 
     @Column(nullable = false)
     private String acudientes;
@@ -44,6 +42,6 @@ public class Estudiante extends Usuario {
     /* Relación con tabla Grupo */
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "grupo_id", referencedColumnName = "idGrupo")
-    private Grupo grupo;
+    private Grupo grupoId;
 }
 

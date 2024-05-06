@@ -43,30 +43,30 @@ public class Clase {
     @Column(nullable = false)
     private String contenido;
 
-    /* Relación con tabla Asignatura */
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "asignatura_id", referencedColumnName = "idAsignatura")
-    private Asignatura asignatura;
-
     /* Relación con tabla Actividad */
-    @OneToMany(mappedBy = "clase", cascade = CascadeType.ALL, orphanRemoval = false, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "actividad", cascade = CascadeType.ALL, orphanRemoval = false, fetch = FetchType.EAGER)
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     private List<Actividad> actividades;
-
+    
     /* Relación con tabla Asistencia */
-    @OneToMany(mappedBy = "clase", cascade = CascadeType.ALL, orphanRemoval = false, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "asistencia", cascade = CascadeType.ALL, orphanRemoval = false, fetch = FetchType.EAGER)
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     private List<Asistencia> asistencias;
-
+    
     /* Relación con tabla Grupo */
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "grupo_id", referencedColumnName = "idGrupo")
-    private Grupo grupo;
+    private Grupo grupoId;
+    
+    /* Relación con tabla Asignatura */
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "asignatura_id", referencedColumnName = "idAsignatura")
+    private Asignatura asignaturaId;
 
-    /* Relación con tabla Grupo */
+    /* Relación con tabla Profesor */
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "profesor_id", referencedColumnName = "idProfesor")
-    private Profesor profesor;
+    private Profesor profesorId;
 }
