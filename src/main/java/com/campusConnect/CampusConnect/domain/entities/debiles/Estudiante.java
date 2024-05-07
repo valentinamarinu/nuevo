@@ -42,6 +42,6 @@ public class Estudiante {
     /* Relación con tabla Grupo */
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "grupo_id", referencedColumnName = "idGrupo")
-    private Grupo grupoId;
+    private Grupo grupo;
 }
 

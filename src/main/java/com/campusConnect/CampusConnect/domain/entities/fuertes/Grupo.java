@@ -40,13 +40,13 @@ public class Grupo {
     private List<Estudiante> estudiantes;
 
     /* Relación con tabla Agenda */
-    @OneToMany(mappedBy = "agenda", cascade = CascadeType.ALL, orphanRemoval = false, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "grupo", cascade = CascadeType.ALL, orphanRemoval = false, fetch = FetchType.EAGER)
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     private List<Agenda> agendas;
 
     /* Relación con tabla Clase */
-    @OneToMany(mappedBy = "clase", cascade = CascadeType.ALL, orphanRemoval = false, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "grupo", cascade = CascadeType.ALL, orphanRemoval = false, fetch = FetchType.EAGER)
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     private List<Clase> clases;

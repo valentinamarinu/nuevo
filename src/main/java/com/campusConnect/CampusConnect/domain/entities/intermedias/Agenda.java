@@ -58,10 +58,10 @@ public class Agenda {
     /* Relación con tabla Evento */
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "evento_id", referencedColumnName = "idEvento")
-    private Evento eventoId;
+    private Evento evento;
 
     /* Relación con tabla Grupo */
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "grupo_id", referencedColumnName = "idGrupo")
-    private Grupo grupoId;
+    private Grupo grupo;
 }

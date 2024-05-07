@@ -35,8 +35,8 @@ public class Asistencia {
     @Enumerated(EnumType.STRING)
     private EstadoAsistencia asistencia;
 
-    /* Relación con la tabla Clases */
+    /* Relación con la tabla Clase */
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "clase_id", referencedColumnName = "idClase")
-    private Clase claseId;
+    private Clase clase;
 }

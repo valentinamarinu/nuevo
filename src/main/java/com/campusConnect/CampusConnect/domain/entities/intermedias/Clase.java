@@ -44,13 +44,13 @@ public class Clase {
     private String contenido;
 
     /* Relación con tabla Actividad */
-    @OneToMany(mappedBy = "actividad", cascade = CascadeType.ALL, orphanRemoval = false, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "clase", cascade = CascadeType.ALL, orphanRemoval = false, fetch = FetchType.EAGER)
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     private List<Actividad> actividades;
     
     /* Relación con tabla Asistencia */
-    @OneToMany(mappedBy = "asistencia", cascade = CascadeType.ALL, orphanRemoval = false, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "clase", cascade = CascadeType.ALL, orphanRemoval = false, fetch = FetchType.EAGER)
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     private List<Asistencia> asistencias;
@@ -58,15 +58,15 @@ public class Clase {
     /* Relación con tabla Grupo */
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "grupo_id", referencedColumnName = "idGrupo")
-    private Grupo grupoId;
+    private Grupo grupo;
     
     /* Relación con tabla Asignatura */
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "asignatura_id", referencedColumnName = "idAsignatura")
-    private Asignatura asignaturaId;
+    private Asignatura asignatura;
 
     /* Relación con tabla Profesor */
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "profesor_id", referencedColumnName = "idProfesor")
-    private Profesor profesorId;
+    private Profesor profesor;
 }

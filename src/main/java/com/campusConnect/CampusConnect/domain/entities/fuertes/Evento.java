@@ -31,7 +31,7 @@ public class Evento {
     @Column(nullable = false)
     private String titulo;
 
-    /* Relación con tabla Agendas */
+    /* Relación con tabla Agenda */
     @OneToMany(mappedBy = "evento", cascade = CascadeType.ALL, orphanRemoval = false, fetch = FetchType.EAGER)
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
