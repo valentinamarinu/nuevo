@@ -1,4 +1,4 @@
-package com.campusConnect.CampusConnect.domain.entities.fuertes;
+package com.campusConnect.CampusConnect.domain.entities.debiles;
 
 import java.util.List;
 

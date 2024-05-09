@@ -3,9 +3,9 @@ package com.campusConnect.CampusConnect.domain.entities.intermedias;
 import java.util.List;
 
 import com.campusConnect.CampusConnect.domain.entities.debiles.Actividad;
+import com.campusConnect.CampusConnect.domain.entities.debiles.Asignatura;
 import com.campusConnect.CampusConnect.domain.entities.debiles.Asistencia;
 import com.campusConnect.CampusConnect.domain.entities.debiles.Profesor;
-import com.campusConnect.CampusConnect.domain.entities.fuertes.Asignatura;
 import com.campusConnect.CampusConnect.domain.entities.fuertes.Grupo;
 
 import jakarta.persistence.CascadeType;

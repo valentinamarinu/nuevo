@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import com.campusConnect.CampusConnect.api.dto.request.fuertes.UsuarioReq;
 import com.campusConnect.CampusConnect.api.dto.response.fuertes.UsuarioResp;
 import com.campusConnect.CampusConnect.domain.entities.fuertes.Usuario;
-import com.campusConnect.CampusConnect.domain.repositories.UsuarioRepository;
+import com.campusConnect.CampusConnect.domain.repositories.fuertes.UsuarioRepository;
 import com.campusConnect.CampusConnect.infrastructure.abstract_services.fuertes.IUsuarioService;
 import com.campusConnect.CampusConnect.util.enums.SortType;
 

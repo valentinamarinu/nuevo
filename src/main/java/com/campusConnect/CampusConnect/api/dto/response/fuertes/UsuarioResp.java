@@ -1,8 +1,8 @@
 package com.campusConnect.CampusConnect.api.dto.response.fuertes;
 
 import com.campusConnect.CampusConnect.api.dto.response.debiles.AdministradorResp;
-/* import com.campusConnect.CampusConnect.domain.entities.debiles.Estudiante;
-import com.campusConnect.CampusConnect.domain.entities.debiles.Profesor; */
+import com.campusConnect.CampusConnect.api.dto.response.debiles.EstudianteResp;
+import com.campusConnect.CampusConnect.api.dto.response.debiles.ProfesorResp;
 import com.campusConnect.CampusConnect.util.enums.Rol;
 import com.campusConnect.CampusConnect.util.enums.TipoDocumento;
 
@@ -27,7 +27,7 @@ public class UsuarioResp {
     private Rol rol;
     private String password;
     private String foto;
-    /* private ProfesorResp profesor;
-    private EstudianteResp estudiante; */
+    private ProfesorResp profesor;
+    private EstudianteResp estudiante;
     private AdministradorResp administrador;
 }

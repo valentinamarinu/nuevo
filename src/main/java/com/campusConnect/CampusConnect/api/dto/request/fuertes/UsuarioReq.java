@@ -8,6 +8,7 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
@@ -56,9 +57,12 @@ public class UsuarioReq {
     /* PENDIENTEEEEEEEEEEEEEEEEEE */
     private String foto;
 
+    @NotNull(message = "El id del profesor es obligatorio")
     private Long idProfesor;
 
+    @NotNull(message = "El id del administrador es obligatorio")
     private Long idAdministrador;
 
+    @NotNull(message = "El id del estudiante es obligatorio")
     private Long idEstudiante;
 }

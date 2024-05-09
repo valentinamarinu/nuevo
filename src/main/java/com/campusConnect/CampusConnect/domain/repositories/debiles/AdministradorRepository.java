@@ -1,4 +1,4 @@
-package com.campusConnect.CampusConnect.domain.repositories;
+package com.campusConnect.CampusConnect.domain.repositories.debiles;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
