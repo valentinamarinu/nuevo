@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.campusConnect.CampusConnect.domain.entities.debiles.Administrador;
 
 @Repository
-public interface AdministradorRepository extends JpaRepository<Administrador, Long>{
+public interface AdministradorRepository extends JpaRepository<Administrador, Long> {
     
 }
