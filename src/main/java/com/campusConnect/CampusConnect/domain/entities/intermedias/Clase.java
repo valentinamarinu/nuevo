@@ -19,6 +19,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -26,6 +27,7 @@ import lombok.ToString;
 
 @Entity(name = "clase")
 @Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class Clase {

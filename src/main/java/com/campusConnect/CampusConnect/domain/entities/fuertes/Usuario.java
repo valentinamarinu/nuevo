@@ -17,11 +17,13 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity(name = "usuario")
 @Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class Usuario {
@@ -30,16 +32,16 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.UUID)
     private String idUsuario;
 
-    @Column(nullable = false)
+    @Column(nullable = false)//atributo obligatorio
     private String nombres;
 
     @Column(nullable = false)
     private String apellidos;
     
-    @Enumerated(EnumType.STRING)
+    @Enumerated(EnumType.STRING) //acepta valores existentes, en mysql es un check in con 3 tipos de valores determinados
     private TipoDocumento tipoDocumento;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false, unique = true) //atributo obligatorio y es unico
     private int documento;
 
     @Column(nullable = false)
@@ -63,7 +65,7 @@ public class Usuario {
 
     /* Relación tabla Profesor */
     @OneToOne
-    @JoinColumn(name = "profesor_id", referencedColumnName = "idProfesor")
+    @JoinColumn(name = "profesor_id", referencedColumnName = "idProfesor")//hace el constraint de el idProfesor en la variable profesor_id
     private Profesor profesor;
 
     /* Relación tabla Administrador */
