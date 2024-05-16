@@ -7,13 +7,14 @@ import org.springframework.stereotype.Service;
 import com.campusConnect.CampusConnect.api.dto.request.fuertes.UsuarioReq;
 import com.campusConnect.CampusConnect.api.dto.response.fuertes.UsuarioResp;
 import com.campusConnect.CampusConnect.domain.repositories.debiles.AdministradorRepository;
-import com.campusConnect.CampusConnect.infrastructure.abstract_services.debiles.IActividadService;
 import com.campusConnect.CampusConnect.infrastructure.abstract_services.debiles.IAdministradorService;
 import com.campusConnect.CampusConnect.util.enums.SortType;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 
 @Service
+@Data
 @AllArgsConstructor
 public class AdministradorService implements IAdministradorService {
     @Autowired

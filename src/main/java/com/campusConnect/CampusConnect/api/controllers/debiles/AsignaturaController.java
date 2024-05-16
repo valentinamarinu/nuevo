@@ -5,12 +5,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.campusConnect.CampusConnect.infrastructure.abstract_services.fuertes.IAsignaturaService;
-import com.campusConnect.CampusConnect.infrastructure.abstract_services.fuertes.IUsuarioService;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 
 @RestController
 @RequestMapping("/asignatura")
+@Data
 @AllArgsConstructor
 public class AsignaturaController {
     /* Inyección de dependencias*/

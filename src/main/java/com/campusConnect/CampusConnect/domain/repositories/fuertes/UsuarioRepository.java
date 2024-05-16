@@ -1,6 +1,7 @@
 package com.campusConnect.CampusConnect.domain.repositories.fuertes;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -12,6 +13,15 @@ import com.campusConnect.CampusConnect.util.enums.Rol;
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuario, String> {
 
+    @Query (value = "SELECT u FROM usuario u JOIN FETCH u.estudiante e WHERE c.id = :idEstudiante ")
+    Optional<Usuario> findByIdEstudiante(Long idEstudiante); //Optional puede que traiga algo puede que no traiga nada
+
+    @Query (value = "SELECT u FROM usuario u JOIN FETCH u.profesor p WHERE p.id = :idProfesor ")
+    Optional<Usuario> findByIdProfesor(Long idProfesor);
+
+    @Query (value = "SELECT u FROM usuario u JOIN FETCH u.administrador a WHERE a.id = :idAdministrador ")
+    Optional<Usuario> findByIdAdministrador(Long idAdministrador);
+    
     @Query(value = "SELECT  u FROM usuario u WHERE u.apellidos :lastname")
     public List<Usuario> findByLastname(String lastname);
 
