@@ -11,8 +11,10 @@ import com.campusConnect.CampusConnect.infrastructure.abstract_services.intermed
 import com.campusConnect.CampusConnect.util.enums.SortType;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 
 @Service
+@Data
 @AllArgsConstructor
 public class AgendaService implements IAgendaService {
     @Autowired

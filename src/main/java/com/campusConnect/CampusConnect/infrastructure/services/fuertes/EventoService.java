@@ -11,8 +11,10 @@ import com.campusConnect.CampusConnect.infrastructure.abstract_services.fuertes.
 import com.campusConnect.CampusConnect.util.enums.SortType;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 
 @Service
+@Data
 @AllArgsConstructor
 public class EventoService implements IEventoService {
     @Autowired

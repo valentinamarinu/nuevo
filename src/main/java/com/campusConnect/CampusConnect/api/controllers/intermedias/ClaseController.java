@@ -7,9 +7,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.campusConnect.CampusConnect.infrastructure.abstract_services.intermedias.IClaseService;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 
 @RestController
 @RequestMapping("/clase")
+@Data
 @AllArgsConstructor
 public class ClaseController {
         /* Inyección de dependencias*/

@@ -11,8 +11,10 @@ import com.campusConnect.CampusConnect.infrastructure.abstract_services.debiles.
 import com.campusConnect.CampusConnect.util.enums.SortType;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 
 @Service
+@Data
 @AllArgsConstructor
 public class EstudianteService implements IEstudianteService {
     @Autowired
