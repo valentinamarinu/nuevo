@@ -51,6 +51,7 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+<<<<<<< HEAD
 
 		<!-- Mail -->
 		<dependency>
@@ -89,13 +90,47 @@
 		</dependency>
 
 		<!-- SWWAGERS  -->
+=======
+>>>>>>> b0177030b5b4b4b55159e0b3fccec5fe4a809886
 		<!-- https://mvnrepository.com/artifact/org.springdoc/springdoc-openapi-starter-webmvc-ui -->
 		<dependency>
 			<groupId>org.springdoc</groupId>
 			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
 			<version>2.5.0</version>
 		</dependency>
+<<<<<<< HEAD
 
+=======
+		<!-- Dependencias de JWT Security-->
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-security</artifactId>
+			</dependency>
+
+			<!-- https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt-api -->
+			<dependency>
+				<groupId>io.jsonwebtoken</groupId>
+				<artifactId>jjwt-api</artifactId>
+					<version>0.12.5</version>
+
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt-impl -->
+			<dependency>
+				<groupId>io.jsonwebtoken</groupId>
+				<artifactId>jjwt-impl</artifactId>
+					<version>0.12.5</version>
+
+				<scope>runtime</scope>
+			</dependency>
+
+			<!-- https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt-jackson -->
+			<dependency>
+				<groupId>io.jsonwebtoken</groupId>
+				<artifactId>jjwt-jackson</artifactId>
+					<version>0.12.5</version>
+				<scope>runtime</scope>
+			</dependency>
+>>>>>>> b0177030b5b4b4b55159e0b3fccec5fe4a809886
 	</dependencies>
 
 	<build>

@@ -8,10 +8,10 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 @Data
-@SuperBuilder
+@SuperBuilder //esta clase sera heredada por otra
 @AllArgsConstructor
 @NoArgsConstructor
-public class BaseErrorResponse implements Serializable {
+public class BaseErrorResponse implements Serializable { //Serializable permite responder errores con metodos HTTP
     private Integer code;
     private String status; 
 }
