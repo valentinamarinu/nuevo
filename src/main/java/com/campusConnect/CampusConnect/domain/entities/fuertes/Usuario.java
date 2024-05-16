@@ -1,6 +1,11 @@
 package com.campusConnect.CampusConnect.domain.entities.fuertes;
 
 
+import java.util.Collection;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
 import com.campusConnect.CampusConnect.domain.entities.debiles.Administrador;
 import com.campusConnect.CampusConnect.domain.entities.debiles.Estudiante;
 import com.campusConnect.CampusConnect.domain.entities.debiles.Profesor;
@@ -24,7 +29,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Usuario {
+public class Usuario implements UserDetails {
     /* Atributos */
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -75,4 +80,41 @@ public class Usuario {
     @OneToOne
     @JoinColumn(name = "estudiante_id", referencedColumnName = "idEstudiante")
     private Estudiante estudiante;
+
+    /* Spring Security */
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getAuthorities'");
+    }
+
+    @Override
+    public String getUsername() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getUsername'");
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'isAccountNonExpired'");
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'isAccountNonLocked'");
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'isCredentialsNonExpired'");
+    }
+
+    @Override
+    public boolean isEnabled() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'isEnabled'");
+    }
 }

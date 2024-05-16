@@ -1,5 +1,8 @@
 package com.campusConnect.CampusConnect.infrastructure.services.fuertes;
 
+import java.util.stream.Collectors;
+
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -66,21 +69,12 @@ public class UsuarioService implements IUsuarioService{
 
     /* Método encargado de convertir objeto Usuario a UsuarioResp */
     private UsuarioResp entityToResponse(Usuario usuario){
-        return UsuarioResp.builder()
-                .idUsuario(usuario.getIdUsuario())
-                .nombres(usuario.getNombres())
-                .apellidos(usuario.getApellidos())
-                .tipoDocumento(usuario.getTipoDocumento())
-                .documento(usuario.getDocumento())
-                .edad(usuario.getEdad())
-                .correo(usuario.getCorreo())
-                .telefono(usuario.getTelefono())
-                .rol(usuario.getRol())
-                .password(usuario.getPassword())
-                .foto(usuario.getFoto())
-                // .profesor()
-                // .administrador(usuario.getAdministrador())
-                // .estudiante(usuario.getEstudiante())
-                .build();
+       UsuarioResp response = new UsuarioResp();
+
+       BeanUtils.copyProperties(usuario, response);
+
+       
+
+       return response;
     }
 }

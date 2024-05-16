@@ -16,5 +16,5 @@ import lombok.NoArgsConstructor;
 public class EstudianteResp {
     private String acudientes;
     private List<SeguimientoPsicologicoResp> seguimientosPsicologicos;
-    private GrupoResp grupo;
+    private GrupoResp grupo; 
 }

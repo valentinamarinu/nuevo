@@ -21,5 +21,6 @@ public class AsistenciaReq {
     @NotNull(message = "El estado de asistencia es requerido.")
     private EstadoAsistencia asistencia;
     
+    @NotNull(message = "El id de la clase es requerido.")
     private long idClase;
 }
