@@ -7,11 +7,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import lombok.experimental.SuperBuilder;
+//import lombok.experimental.SuperBuilder;
 
 @EqualsAndHashCode(callSuper=true)
 @Data
-@SuperBuilder
+//@SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
 public class AdministradorRegisterReq extends RegisterReq{

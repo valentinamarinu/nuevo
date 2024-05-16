@@ -1,5 +1,7 @@
 package com.campusConnect.CampusConnect.domain.repositories.fuertes;
 
+import java.util.Optional;
+
 // import java.util.List;
 // import java.util.Optional;
 
@@ -9,6 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import com.campusConnect.CampusConnect.domain.entities.fuertes.Usuario;
 // import com.campusConnect.CampusConnect.util.enums.Rol;
+
 
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuario, String> {
@@ -42,5 +45,7 @@ public interface UsuarioRepository extends JpaRepository<Usuario, String> {
 
     // @Query(value = "SELECT  u FROM usuario u WHERE u.rol :rol")
     // public List<Usuario> findByRol(Rol rol);
+
+    public Optional<Usuario> findByUsuario(String userName);
 
 }
