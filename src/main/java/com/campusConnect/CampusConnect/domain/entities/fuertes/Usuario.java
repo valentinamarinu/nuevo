@@ -1,6 +1,13 @@
 package com.campusConnect.CampusConnect.domain.entities.fuertes;
 
 
+import java.util.Collection;
+import java.util.List;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
 import com.campusConnect.CampusConnect.domain.entities.debiles.Administrador;
 import com.campusConnect.CampusConnect.domain.entities.debiles.Estudiante;
 import com.campusConnect.CampusConnect.domain.entities.debiles.Profesor;
@@ -26,7 +33,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Usuario {
+public class Usuario implements UserDetails {
     /* Atributos */
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -77,4 +84,36 @@ public class Usuario {
     @OneToOne
     @JoinColumn(name = "estudiante_id", referencedColumnName = "idEstudiante")
     private Estudiante estudiante;
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        /*Guarda la autoridad otorgada al usuario autenticado */
+        return List.of(new SimpleGrantedAuthority(this.rol.name()));
+    }
+
+    //obtener usuario
+    @Override
+    public String getUsername() {
+        return this.correo;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+       return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+       return true;
+    }
 }

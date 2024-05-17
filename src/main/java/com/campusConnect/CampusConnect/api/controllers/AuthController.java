@@ -27,7 +27,7 @@ public class AuthController {
         public String login(){
             return "DESDE LOGIN";
         }
-        @PostMapping(path="/auth/register")
+        @PostMapping(path="/auth/register/admin")
         public ResponseEntity<AuthResp> register(
             @Validated @RequestBody RegisterReq request
         ){

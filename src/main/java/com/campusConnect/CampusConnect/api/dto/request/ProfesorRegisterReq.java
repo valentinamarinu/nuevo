@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 //@SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
-public class ProfesorRegisterReq extends RegisterReq {
+public class ProfesorRegisterReq extends RegisterReq{
     @NotBlank(message = "El nombre es requerido")
     private String firstName;
     @NotBlank(message = "El apellido es requerido")

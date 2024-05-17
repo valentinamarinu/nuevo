@@ -46,6 +46,7 @@ public interface UsuarioRepository extends JpaRepository<Usuario, String> {
     // @Query(value = "SELECT  u FROM usuario u WHERE u.rol :rol")
     // public List<Usuario> findByRol(Rol rol);
 
-    public Optional<Usuario> findByUsuario(String userName);
+    //@Query(value = "SELECT u FROM usuario u WHERE u.correo :cor")
+    public Optional<Usuario> findByCorreo(String cor);
 
 }
