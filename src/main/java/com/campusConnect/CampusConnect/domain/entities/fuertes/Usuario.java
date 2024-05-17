@@ -1,10 +1,6 @@
 package com.campusConnect.CampusConnect.domain.entities.fuertes;
 
-
-import java.util.Collection;
-
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
+import java.sql.Date;
 
 import com.campusConnect.CampusConnect.domain.entities.debiles.Administrador;
 import com.campusConnect.CampusConnect.domain.entities.debiles.Estudiante;
@@ -31,14 +27,14 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Usuario implements UserDetails {
+public class Usuario {
     /* Atributos */
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String idUsuario;
 
     @Column(nullable = false)//atributo obligatorio
-    private String nombres;
+    private String nombre;
 
     @Column(nullable = false)
     private String apellidos;
@@ -50,7 +46,7 @@ public class Usuario implements UserDetails {
     private int documento;
 
     @Column(nullable = false)
-    private Integer edad;
+    private Date fechaNacimiento;
     
     @Column(nullable = false)
     private String correo;
@@ -62,7 +58,6 @@ public class Usuario implements UserDetails {
     private Rol rol;
 
     @Column(nullable = false, length = 100)
-    /* dto expresion regular para que me la valide */
     private String password;
 
     /* REVISAR BIEN SUGERENCIA DE KEVIN, subir imagen y una api que pase eso a url*/
@@ -70,7 +65,7 @@ public class Usuario implements UserDetails {
 
     /* Relación tabla Profesor */
     @OneToOne
-    @JoinColumn(name = "profesor_id", referencedColumnName = "idProfesor")//hace el constraint de el idProfesor en la variable profesor_id
+    @JoinColumn(name = "profesor_id", referencedColumnName = "idProfesor") // Hace el constraint de el idProfesor en la variable profesor_id
     private Profesor profesor;
 
     /* Relación tabla Administrador */
@@ -82,41 +77,4 @@ public class Usuario implements UserDetails {
     @OneToOne
     @JoinColumn(name = "estudiante_id", referencedColumnName = "idEstudiante")
     private Estudiante estudiante;
-
-    /* Spring Security */
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getAuthorities'");
-    }
-
-    @Override
-    public String getUsername() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getUsername'");
-    }
-
-    @Override
-    public boolean isAccountNonExpired() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'isAccountNonExpired'");
-    }
-
-    @Override
-    public boolean isAccountNonLocked() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'isAccountNonLocked'");
-    }
-
-    @Override
-    public boolean isCredentialsNonExpired() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'isCredentialsNonExpired'");
-    }
-
-    @Override
-    public boolean isEnabled() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'isEnabled'");
-    }
 }

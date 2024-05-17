@@ -19,6 +19,7 @@ public class AgendaReq {
     @NotNull(message = "El estado de la agenda es requerido.")
     private EstadoAgenda estado;
 
+    @NotNull(message = "La descripción del evento es requerida.")
     private Date evenTitle;
 
     @NotNull(message = "La fecha de inicio del evento es requerida.")

@@ -2,6 +2,7 @@ package com.campusConnect.CampusConnect.domain.entities.debiles;
 
 import java.util.List;
 
+import com.campusConnect.CampusConnect.domain.entities.fuertes.Grupo;
 import com.campusConnect.CampusConnect.domain.entities.intermedias.Clase;
 
 import jakarta.persistence.CascadeType;
@@ -11,7 +12,9 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -31,12 +34,16 @@ public class Profesor {
     @Column(nullable = false)
     private String hojaVida;
 
+    /* Relación tabla Grupo */
+    @OneToOne
+    @JoinColumn(name = "grupo_id", referencedColumnName = "idGrupo")
+    private Grupo grupo;
+
     /* Relación con tabla Clase */
     @OneToMany(mappedBy = "profesor", cascade = CascadeType.ALL, orphanRemoval = false, fetch = FetchType.EAGER)
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     private List<Clase> clases;
-
 }
 
 

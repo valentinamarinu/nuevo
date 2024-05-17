@@ -5,12 +5,9 @@ import java.sql.Time;
 
 import com.campusConnect.CampusConnect.domain.entities.fuertes.Evento;
 import com.campusConnect.CampusConnect.domain.entities.fuertes.Grupo;
-import com.campusConnect.CampusConnect.util.enums.EstadoAgenda;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -33,29 +30,23 @@ public class Agenda {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idAgenda;
 
-    @Enumerated(EnumType.STRING)
-    private EstadoAgenda estado;
+    @Column(nullable = false)
+    private Date eventTitle;
 
     @Column(nullable = false)
-    private Date evenTitle;
+    private Date eventStartDate;
 
     @Column(nullable = false)
-    private Date evenStartDate;
+    private Date eventEndDate;
 
     @Column(nullable = false)
-    private Date evenEndDate;
+    private Time eventStartTime;
 
     @Column(nullable = false)
-    private Time evenStartTime;
-
-    @Column(nullable = false)
-    private Time evenEndTime;
+    private Time eventEndTime;
     
     @Column(nullable = false)
-    private String evenLocation;
-    
-    @Column(nullable = false)
-    private String evenURL;
+    private String eventLocation;
 
     /* Relación con tabla Evento */
     @ManyToOne(fetch = FetchType.LAZY)

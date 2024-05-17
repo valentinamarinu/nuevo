@@ -3,6 +3,7 @@ package com.campusConnect.CampusConnect.domain.entities.debiles;
 import java.util.List;
 
 import com.campusConnect.CampusConnect.domain.entities.fuertes.Grupo;
+import com.campusConnect.CampusConnect.domain.entities.intermedias.Asistencia;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -38,6 +39,12 @@ public class Estudiante {
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     private List<SeguimientoPsicologico> seguimientosPsicologicos;
+
+    /* Relación con tabla Asistencia */
+    @OneToMany(mappedBy = "estudiante", cascade = CascadeType.ALL, orphanRemoval = false, fetch = FetchType.EAGER)
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    private List<Asistencia> asistencias;
 
     /* Relación con tabla Grupo */
     @ManyToOne(fetch = FetchType.LAZY)

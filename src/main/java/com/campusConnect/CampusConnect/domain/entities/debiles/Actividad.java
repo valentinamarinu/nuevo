@@ -34,4 +34,9 @@ public class Actividad {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "clase_id", referencedColumnName = "idClase")
     private Clase clase;
+
+    /* Relación con tabla Estudiante */
+    // @ManyToOne(fetch = FetchType.LAZY)
+    // @JoinColumn(name = "estudiante_id", referencedColumnName = "idEstudiante")
+    // private Estudiante estudiante;
 }

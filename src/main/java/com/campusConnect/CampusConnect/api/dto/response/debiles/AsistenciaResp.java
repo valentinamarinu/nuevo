@@ -19,4 +19,5 @@ public class AsistenciaResp {
     private Date dia;
     private EstadoAsistencia asistencia;
     private ClaseResp clase;
+    
 }

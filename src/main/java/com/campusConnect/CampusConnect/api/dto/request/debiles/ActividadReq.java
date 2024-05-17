@@ -22,7 +22,7 @@ public class ActividadReq {
     private String descripcion;
 
     /* Clase a la que pertenece la actividad */
-    @NotNull(message = "El id de la clase es obligatorio")
+    @NotNull(message = "El id de la clase a la que pertenece esta actividad es obligatoria.")
     private Long idClase;
 }
 
