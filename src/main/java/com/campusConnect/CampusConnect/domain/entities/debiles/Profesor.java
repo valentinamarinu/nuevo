@@ -3,6 +3,7 @@ package com.campusConnect.CampusConnect.domain.entities.debiles;
 import java.util.List;
 
 import com.campusConnect.CampusConnect.domain.entities.fuertes.Grupo;
+import com.campusConnect.CampusConnect.domain.entities.fuertes.Usuario;
 import com.campusConnect.CampusConnect.domain.entities.intermedias.Clase;
 
 import jakarta.persistence.CascadeType;
@@ -34,8 +35,13 @@ public class Profesor {
     @Column(nullable = false)
     private String hojaVida;
 
+    /* Relación tabla Usuario */
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "usuario_id", referencedColumnName = "idUsuario")
+    private Usuario usuario;
+
     /* Relación tabla Grupo */
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "grupo_id", referencedColumnName = "idGrupo")
     private Grupo grupo;
 

@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
-import com.campusConnect.CampusConnect.api.dto.request.fuertes.UsuarioReq;
-import com.campusConnect.CampusConnect.api.dto.response.fuertes.UsuarioResp;
+import com.campusConnect.CampusConnect.api.dto.request.debiles.ProfesorReq;
+import com.campusConnect.CampusConnect.api.dto.response.debiles.ProfesorResp;
 import com.campusConnect.CampusConnect.domain.repositories.debiles.ProfesorRepository;
 import com.campusConnect.CampusConnect.infrastructure.abstract_services.debiles.IProfesorService;
 import com.campusConnect.CampusConnect.util.enums.SortType;
@@ -21,33 +21,34 @@ public class ProfesorService implements IProfesorService {
     private final ProfesorRepository profesorRepository;
 
     @Override
-    public Page<UsuarioResp> getAll(int page, int size, SortType sortType) {
+    public Page<ProfesorResp> getAll(int page, int size, SortType sortType) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getAll'");
     }
 
     @Override
-    public UsuarioResp create(UsuarioReq request) {
+    public ProfesorResp create(ProfesorReq request) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'create'");
     }
 
     @Override
-    public UsuarioResp update(UsuarioReq request, String id) {
+    public ProfesorResp update(ProfesorReq request, Long id) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'update'");
     }
 
     @Override
-    public void delete(String id) {
+    public void delete(Long id) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'delete'");
     }
 
     @Override
-    public UsuarioResp getById(String id) {
+    public ProfesorResp getById(Long id) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getById'");
     }
+
     
 }

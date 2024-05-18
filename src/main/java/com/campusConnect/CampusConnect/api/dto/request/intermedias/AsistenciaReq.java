@@ -1,4 +1,4 @@
-package com.campusConnect.CampusConnect.api.dto.request.debiles;
+package com.campusConnect.CampusConnect.api.dto.request.intermedias;
 
 import java.util.Date;
 

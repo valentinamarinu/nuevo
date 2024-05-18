@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.campusConnect.CampusConnect.infrastructure.abstract_services.debiles.IAsistenciaService;
+import com.campusConnect.CampusConnect.infrastructure.abstract_services.intermedias.IAsistenciaService;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

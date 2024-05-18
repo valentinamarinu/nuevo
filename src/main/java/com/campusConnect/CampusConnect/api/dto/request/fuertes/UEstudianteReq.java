@@ -1,5 +1,8 @@
 package com.campusConnect.CampusConnect.api.dto.request.fuertes;
 
+import java.math.BigInteger;
+import java.sql.Date;
+
 import com.campusConnect.CampusConnect.util.enums.Rol;
 import com.campusConnect.CampusConnect.util.enums.TipoDocumento;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -22,7 +25,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class UEstudianteReq {
     @NotBlank(message = "El nombre es requerido.")
-    private String nombres;
+    private String nombre;
 
     @NotBlank(message = "Los apellidos son requeridos.")
     private String apellidos;
@@ -32,11 +35,11 @@ public class UEstudianteReq {
 
     @Min(value = 10000000, message = "El número del documento de identificación no debe ser menor 8 dígitos")
     @Max(value = 1999999999, message = "El número del documento de identificación no debe exceder los 10 dígitos.")
-    private int documento;
+    private BigInteger documento;
 
     @Min(value = 1, message = "La edad debe ser menor a 1 año." )
     @Max(value = 70, message = "La edad no debe ser mayor a 70 años.") 
-    private Integer edad;
+    private Date fechaNacimiento;
 
     @Email(message = "El email ingresado no es válido.")
     @Size(min = 5, max = 100, message = "El email debe tener entre 5 y 100 caracteres.")

@@ -1,4 +1,4 @@
-package com.campusConnect.CampusConnect.domain.repositories.debiles;
+package com.campusConnect.CampusConnect.domain.repositories.intermedias;
 
 // import java.util.List;
 

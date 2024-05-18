@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class SeguimientoPsicologicoReq {
-    @NotNull(message = "La fecha del seguimiento psicológico es requerida.")
+    @NotNull(message = "La fecha del registro del seguimiento psicológico es requerida.")
     private Date dia;
 
     @NotNull(message = "El estado de ánimo del estudiante es requerido.")

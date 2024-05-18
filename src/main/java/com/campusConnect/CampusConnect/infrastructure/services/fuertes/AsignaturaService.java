@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
-import com.campusConnect.CampusConnect.api.dto.request.fuertes.UsuarioReq;
-import com.campusConnect.CampusConnect.api.dto.response.fuertes.UsuarioResp;
+import com.campusConnect.CampusConnect.api.dto.request.debiles.AsignaturaReq;
+import com.campusConnect.CampusConnect.api.dto.response.debiles.AsignaturaResp;
 import com.campusConnect.CampusConnect.domain.repositories.debiles.AsignaturaRepository;
 import com.campusConnect.CampusConnect.infrastructure.abstract_services.fuertes.IAsignaturaService;
 import com.campusConnect.CampusConnect.util.enums.SortType;
@@ -21,33 +21,33 @@ public class AsignaturaService implements IAsignaturaService {
     private final AsignaturaRepository asignaturaRepository;
 
     @Override
-    public Page<UsuarioResp> getAll(int page, int size, SortType sortType) {
+    public Page<AsignaturaResp> getAll(int page, int size, SortType sortType) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getAll'");
     }
 
     @Override
-    public UsuarioResp create(UsuarioReq request) {
+    public AsignaturaResp create(AsignaturaReq request) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'create'");
     }
 
     @Override
-    public UsuarioResp update(UsuarioReq request, String id) {
+    public AsignaturaResp update(AsignaturaReq request, Long id) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'update'");
     }
 
     @Override
-    public void delete(String id) {
+    public void delete(Long id) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'delete'");
     }
 
     @Override
-    public UsuarioResp getById(String id) {
+    public AsignaturaResp getById(Long id) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getById'");
     }
-    
+
 }

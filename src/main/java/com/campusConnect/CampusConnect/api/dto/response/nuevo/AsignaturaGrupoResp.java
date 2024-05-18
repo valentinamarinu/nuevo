@@ -1,7 +1,5 @@
 package com.campusConnect.CampusConnect.api.dto.response.nuevo;
 
-import java.util.List;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

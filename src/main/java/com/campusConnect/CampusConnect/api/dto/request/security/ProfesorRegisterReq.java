@@ -9,9 +9,9 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
+@SuperBuilder
 @EqualsAndHashCode(callSuper=true)
 @Data
-@SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
 public class ProfesorRegisterReq extends RegisterReq {

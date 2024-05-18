@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
-import com.campusConnect.CampusConnect.api.dto.request.fuertes.UsuarioReq;
-import com.campusConnect.CampusConnect.api.dto.response.fuertes.UsuarioResp;
+import com.campusConnect.CampusConnect.api.dto.request.intermedias.ClaseReq;
+import com.campusConnect.CampusConnect.api.dto.response.intermedias.ClaseResp;
 import com.campusConnect.CampusConnect.domain.repositories.intermedias.ClaseRepository;
 import com.campusConnect.CampusConnect.infrastructure.abstract_services.intermedias.IClaseService;
 import com.campusConnect.CampusConnect.util.enums.SortType;
@@ -21,33 +21,32 @@ public class ClaseService implements IClaseService {
     private final ClaseRepository claseRepository;
 
     @Override
-    public Page<UsuarioResp> getAll(int page, int size, SortType sortType) {
+    public Page<ClaseResp> getAll(int page, int size, SortType sortType) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getAll'");
     }
 
     @Override
-    public UsuarioResp create(UsuarioReq request) {
+    public ClaseResp create(ClaseReq request) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'create'");
     }
 
     @Override
-    public UsuarioResp update(UsuarioReq request, String id) {
+    public ClaseResp update(ClaseReq request, Long id) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'update'");
     }
 
     @Override
-    public void delete(String id) {
+    public void delete(Long id) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'delete'");
     }
 
     @Override
-    public UsuarioResp getById(String id) {
+    public ClaseResp getById(Long id) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getById'");
     }
-    
 }

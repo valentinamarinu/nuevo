@@ -3,6 +3,7 @@ package com.campusConnect.CampusConnect.domain.entities.fuertes;
 import java.util.List;
 
 import com.campusConnect.CampusConnect.domain.entities.debiles.Estudiante;
+import com.campusConnect.CampusConnect.domain.entities.debiles.Profesor;
 import com.campusConnect.CampusConnect.domain.entities.intermedias.Agenda;
 import com.campusConnect.CampusConnect.domain.entities.intermedias.Clase;
 
@@ -14,6 +15,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -34,6 +36,10 @@ public class Grupo {
 
     @Column(nullable = false)
     private String nombre;
+
+    /* Relacion con tabla Profesor */
+    @OneToOne(mappedBy = "grupo")
+    private Profesor profesor;
 
     /* Relación con tabla Estudiante */
     @OneToMany(mappedBy = "grupo", cascade = CascadeType.ALL, orphanRemoval = false, fetch = FetchType.EAGER)

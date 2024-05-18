@@ -44,5 +44,4 @@ public class Asistencia {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "estudiante_id", referencedColumnName = "idEstudiante")
     private Estudiante estudiante;
-
 }
