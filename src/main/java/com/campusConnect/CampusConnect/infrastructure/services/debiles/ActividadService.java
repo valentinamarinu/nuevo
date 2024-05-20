@@ -19,6 +19,7 @@ import lombok.Data;
 public class ActividadService implements IActividadService {
     @Autowired
     private final ActividadRepository actividadRepository;
+    
 
     @Override
     public Page<ActividadResp> getAll(int page, int size, SortType sortType) {

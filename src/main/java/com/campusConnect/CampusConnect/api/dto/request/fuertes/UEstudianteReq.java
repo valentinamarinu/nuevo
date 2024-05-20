@@ -3,6 +3,8 @@ package com.campusConnect.CampusConnect.api.dto.request.fuertes;
 import java.math.BigInteger;
 import java.sql.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import com.campusConnect.CampusConnect.util.enums.Rol;
 import com.campusConnect.CampusConnect.util.enums.TipoDocumento;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -12,6 +14,7 @@ import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
@@ -37,8 +40,10 @@ public class UEstudianteReq {
     @Max(value = 1999999999, message = "El número del documento de identificación no debe exceder los 10 dígitos.")
     private BigInteger documento;
 
-    @Min(value = 1, message = "La edad debe ser menor a 1 año." )
-    @Max(value = 70, message = "La edad no debe ser mayor a 70 años.") 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @Pattern(regexp = "^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])", message = "La fecha de nacimiento debe tener el formato YYYY-MM-DD.")
+    @Past(message = "La fecha de nacimiento no puede ser una fecha futura.")
+    @NotNull(message = "La fecha de nacimiento es obligatoria.")
     private Date fechaNacimiento;
 
     @Email(message = "El email ingresado no es válido.")

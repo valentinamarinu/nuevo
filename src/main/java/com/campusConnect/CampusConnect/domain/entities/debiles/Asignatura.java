@@ -13,6 +13,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -20,6 +21,7 @@ import lombok.ToString;
 
 @Entity(name = "asignatura")
 @Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class Asignatura {

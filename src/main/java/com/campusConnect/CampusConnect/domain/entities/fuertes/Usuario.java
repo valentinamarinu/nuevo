@@ -31,7 +31,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Usuario implements UserDetails{
+public class Usuario implements UserDetails {
     /* Atributos */
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)

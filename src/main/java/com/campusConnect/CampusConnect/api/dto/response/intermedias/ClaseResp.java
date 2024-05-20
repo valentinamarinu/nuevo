@@ -4,9 +4,8 @@ import java.util.List;
 
 import com.campusConnect.CampusConnect.api.dto.response.debiles.ActividadResp;
 import com.campusConnect.CampusConnect.api.dto.response.debiles.AsignaturaResp;
-import com.campusConnect.CampusConnect.api.dto.response.debiles.AsistenciaResp;
-import com.campusConnect.CampusConnect.api.dto.response.debiles.ProfesorResp;
 import com.campusConnect.CampusConnect.api.dto.response.fuertes.GrupoResp;
+import com.campusConnect.CampusConnect.api.dto.response.fuertes.UProfesorResp;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -26,5 +25,5 @@ public class ClaseResp {
     private List<AsistenciaResp> asistencias;
     private GrupoResp grupo;
     private AsignaturaResp asignatura;
-    private ProfesorResp profesor;
+    private UProfesorResp profesor;
 }

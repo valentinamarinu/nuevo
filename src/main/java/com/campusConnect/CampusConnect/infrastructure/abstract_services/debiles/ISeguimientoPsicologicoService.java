@@ -4,6 +4,6 @@ import com.campusConnect.CampusConnect.api.dto.request.debiles.SeguimientoPsicol
 import com.campusConnect.CampusConnect.api.dto.response.debiles.SeguimientoPsicologicoResp;
 import com.campusConnect.CampusConnect.infrastructure.abstract_services.CrudService;
 
-public interface ISeguimientoPsicologicoService extends CrudService <SeguimientoPsicologicoReq, SeguimientoPsicologicoResp, Long> {
+public interface ISeguimientoPsicologicoService extends CrudService<SeguimientoPsicologicoReq, SeguimientoPsicologicoResp, Long> {
     
 }

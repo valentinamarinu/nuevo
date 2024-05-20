@@ -4,9 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
-import com.campusConnect.CampusConnect.api.dto.request.debiles.EstudianteReq;
-import com.campusConnect.CampusConnect.api.dto.response.debiles.EstudianteResp;
+import com.campusConnect.CampusConnect.api.dto.request.fuertes.UEstudianteReq;
+import com.campusConnect.CampusConnect.api.dto.response.fuertes.UEstudianteResp;
 import com.campusConnect.CampusConnect.domain.repositories.debiles.EstudianteRepository;
+import com.campusConnect.CampusConnect.domain.repositories.fuertes.UsuarioRepository;
 import com.campusConnect.CampusConnect.infrastructure.abstract_services.debiles.IEstudianteService;
 import com.campusConnect.CampusConnect.util.enums.SortType;
 
@@ -18,37 +19,41 @@ import lombok.Data;
 @AllArgsConstructor
 public class EstudianteService implements IEstudianteService {
     @Autowired
+    private final UsuarioRepository usuarioRepository;
+    
+    @Autowired
     private final EstudianteRepository estudianteRepository;
 
     @Override
-    public Page<EstudianteResp> getAll(int page, int size, SortType sortType) {
+    public Page<UEstudianteResp> getAll(int page, int size, SortType sortType) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getAll'");
     }
 
     @Override
-    public EstudianteResp create(EstudianteReq request) {
+    public UEstudianteResp create(UEstudianteReq request) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'create'");
     }
 
     @Override
-    public EstudianteResp update(EstudianteReq request, Long id) {
+    public UEstudianteResp update(UEstudianteReq request, String id) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'update'");
     }
 
     @Override
-    public void delete(Long id) {
+    public void delete(String id) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'delete'");
     }
 
     @Override
-    public EstudianteResp getById(Long id) {
+    public UEstudianteResp getById(String id) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getById'");
     }
+
 
     
 }

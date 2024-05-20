@@ -16,7 +16,7 @@ import lombok.Data;
 @Service
 @Data
 @AllArgsConstructor
-public class SeguimientoPsicologicoService implements ISeguimientoPsicologicoService{
+public class SeguimientoPsicologicoService implements ISeguimientoPsicologicoService {
     @Autowired
     private final SeguimientoPsicologicoRepository seguimientoPsicologicoRepository;
 

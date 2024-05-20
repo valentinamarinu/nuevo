@@ -9,12 +9,11 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
-@EqualsAndHashCode(callSuper = true) //para que el padre sea el unico que ponga el serial, no genere dos espacios de memoria
+@SuperBuilder // Llama el constructor del padre
+@EqualsAndHashCode(callSuper = true) // Para que el padre sea el unico que ponga el serial, no genere dos espacios de memoria
 @Data
-@SuperBuilder //llama el constructor del padre
 @AllArgsConstructor
 @NoArgsConstructor
 public class ErrorsResp extends BaseErrorResponse {
-    //private List<String> errors;
-    private List<Map<String,String>> errors; //lista de map u objetos de errores
+    private List<Map<String,String>> errors; // Lista de map u objetos de errores
 }

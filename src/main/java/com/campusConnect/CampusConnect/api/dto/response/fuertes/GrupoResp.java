@@ -2,7 +2,6 @@ package com.campusConnect.CampusConnect.api.dto.response.fuertes;
 
 import java.util.List;
 
-import com.campusConnect.CampusConnect.api.dto.response.debiles.EstudianteResp;
 import com.campusConnect.CampusConnect.api.dto.response.intermedias.AgendaResp;
 import com.campusConnect.CampusConnect.api.dto.response.intermedias.ClaseResp;
 
@@ -18,7 +17,7 @@ import lombok.NoArgsConstructor;
 public class GrupoResp {
     private Long idGrupo;
     private String nombre;
-    private List<EstudianteResp> estudiantes;
+    private List<UEstudianteResp> estudiantes;
     private List<AgendaResp> agendas;
     private List<ClaseResp> clases;
 }

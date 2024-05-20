@@ -6,11 +6,11 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
 @Builder
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class AdministradorReq {
-    @NotBlank(message = "La descripción del cargo es requerida.")
+    @NotBlank(message = "La descripciòn del cargo es requerida.")
     private String descripcionCargo;
 }

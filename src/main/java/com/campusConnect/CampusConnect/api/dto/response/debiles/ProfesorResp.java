@@ -1,6 +1,5 @@
 package com.campusConnect.CampusConnect.api.dto.response.debiles;
 
-
 import java.util.List;
 
 import com.campusConnect.CampusConnect.api.dto.response.intermedias.ClaseResp;

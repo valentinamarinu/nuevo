@@ -17,5 +17,4 @@ public interface IAuthService {
     public AuthResp registerEstudiante(EstudianteRegisterReq request);
     
     public AuthResp registerProfesor(ProfesorRegisterReq request);
-
 }
