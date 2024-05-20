@@ -3,6 +3,7 @@ package com.campusConnect.CampusConnect.domain.entities.debiles;
 import java.util.List;
 
 import com.campusConnect.CampusConnect.domain.entities.fuertes.Grupo;
+import com.campusConnect.CampusConnect.domain.entities.fuertes.Usuario;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -14,17 +15,18 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import lombok.experimental.SuperBuilder;
 
 @Entity(name = "estudiante")
-@Data
+@SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Estudiante {
+public class Estudiante extends Usuario{
     /* Atributos */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -43,5 +45,10 @@ public class Estudiante {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "grupo_id", referencedColumnName = "idGrupo")
     private Grupo grupo;
+
+    /*Relacion con el usuario */
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "usuario_id", referencedColumnName = "id_usuario")
+    private Usuario usuario;
 }
 

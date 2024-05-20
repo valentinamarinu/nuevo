@@ -1,12 +1,10 @@
 package com.campusConnect.CampusConnect.infrastructure.services;
 
 
-import org.apache.coyote.BadRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
-//import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.campusConnect.CampusConnect.api.dto.request.EstudianteRegisterReq;
@@ -14,11 +12,13 @@ import com.campusConnect.CampusConnect.api.dto.request.LoginReq;
 import com.campusConnect.CampusConnect.api.dto.request.ProfesorRegisterReq;
 import com.campusConnect.CampusConnect.api.dto.request.RegisterReq;
 import com.campusConnect.CampusConnect.api.dto.response.AuthResp;
+import com.campusConnect.CampusConnect.domain.entities.debiles.Estudiante;
 import com.campusConnect.CampusConnect.domain.entities.fuertes.Usuario;
 import com.campusConnect.CampusConnect.domain.repositories.fuertes.UsuarioRepository;
 import com.campusConnect.CampusConnect.infrastructure.abstract_services.IAuthService;
 import com.campusConnect.CampusConnect.infrastructure.helpers.JwtService;
 import com.campusConnect.CampusConnect.util.enums.Rol;
+import com.campusConnect.CampusConnect.util.exceptions.BadRequestException;
 
 import lombok.AllArgsConstructor;
 
@@ -38,11 +38,8 @@ public class AuthService  implements IAuthService{
     @Autowired
     private final AuthenticationManager authenticationManager;
 
-    //@Autowired
-    //private final PasswordEncoder passwordEncoder;
-
     @Override
-    public AuthResp login(LoginReq request) throws BadRequestException {
+    public AuthResp login(LoginReq request){
 
         try {
              //autentica en la app el usario y contraseña
@@ -85,7 +82,7 @@ public class AuthService  implements IAuthService{
                         .edad(request.getEdad())
                         .telefono(request.getTelefono())
                         .correo(request.getEmail())
-                        .password(request.getPassword())
+                        .password(passwordEncoder.encode(request.getPassword()))
                         //.password(passwordEncoder.encode(request.getPassword())) //guardar la contraseña codificada
                         .rol(Rol.ADMINISTRADOR)                /* no se como registrar que tipo desde el inicio */
                         .build();
@@ -98,16 +95,62 @@ public class AuthService  implements IAuthService{
                 .build();
     }
 
+    /*Metodo para registrar un estudiante */
     @Override
     public AuthResp registerEstudiante(EstudianteRegisterReq request) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'registerEstudiante'");
+       /*Validamos que el usuario no exista */
+       Usuario exist = this.findByCorreo(request.getCorreo());
+
+       if (exist != null) {
+            throw new BadRequestException("El usuario ya esta registrado");
+       }
+       /*Construimos el estudiante */
+       Usuario user = Usuario.builder()
+                        .nombres(request.getNombres())
+                        .apellidos(request.getApellidos())
+                        .documento(request.getDocumento())
+                        .edad(request.getEdad())
+                        .telefono(request.getTelefono())
+                        .correo(request.getEmail())
+                        .password(passwordEncoder.encode(request.getPassword()))
+                        //.password(passwordEncoder.encode(request.getPassword())) //guardar la contraseña codificada
+                        .rol(Rol.ESTUDIANTE)                /* no se como registrar que tipo desde el inicio */
+                        .build();
+
+        /* Se Guarda el usuario en la db */
+        Usuario usuarioSave = this.usuarioRepository.save(user);
+
+
     }
 
     @Override
     public AuthResp registerProfesor(ProfesorRegisterReq request) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'registerProfesor'");
+        /*Validamos que el usuario no exista */
+       Usuario exist = this.findByCorreo(request.getCorreo());
+
+       if (exist != null) {
+            throw new BadRequestException("El usuario ya esta registrado");
+       }
+       /*Construimos el estudiante */
+       Usuario user = Usuario.builder()
+                        .nombres(request.getNombres())
+                        .apellidos(request.getApellidos())
+                        .documento(request.getDocumento())
+                        .edad(request.getEdad())
+                        .telefono(request.getTelefono())
+                        .correo(request.getEmail())
+                        .password(passwordEncoder.encode(request.getPassword()))
+                        //.password(passwordEncoder.encode(request.getPassword())) //guardar la contraseña codificada
+                        .rol(Rol.ESTUDIANTE)                /* no se como registrar que tipo desde el inicio */
+                        .build();
+
+        /* Se Guarda el usuario en la db */
+        Usuario usuarioSave = this.usuarioRepository.save(user);
+
+        return AuthResp.builder()
+                .message("Registro de estudiante completado exitosamente")
+                .token(this.jwtService.getToken(usuarioSave))
+                .build();
     }
     
     private Usuario findByCorreo(String userEmail){

@@ -9,23 +9,24 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 //import lombok.experimental.SuperBuilder;
+import lombok.experimental.SuperBuilder;
 
 @EqualsAndHashCode(callSuper=true)
 @Data
-//@SuperBuilder
+@SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
 public class AdministradorRegisterReq extends RegisterReq{
-    @NotBlank(message = "El nombre es requerido")
-    private String firstName;
-    @NotBlank(message = "El apellido es requerido")
-    private String lastName;
-    @Size(
-        min = 10, 
-        max = 20, 
-        message = "El teléfono debe tener entre 10 y 20 caracteres"
-    )
-    private String phone;
+
+    @NotBlank(message = "La descripción del cargo es requerida.")
+    private String descripcionCargo;
+
+    @NotBlank(message = "El nombre es requerido.")
+    private String nombres;
+
+    @NotBlank(message = "Los apellidos son requeridos.")
+    private String apellidos;
+    
     @Email(message = "El email no es válido")
     @Size(
         min = 5, 

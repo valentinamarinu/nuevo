@@ -7,11 +7,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-//import lombok.experimental.SuperBuilder;
+import lombok.experimental.SuperBuilder;
 
 @EqualsAndHashCode(callSuper=true)
 @Data
-//@SuperBuilder
+@SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
 public class ProfesorRegisterReq extends RegisterReq{
@@ -19,12 +19,6 @@ public class ProfesorRegisterReq extends RegisterReq{
     private String firstName;
     @NotBlank(message = "El apellido es requerido")
     private String lastName;
-    @Size(
-        min = 10, 
-        max = 20, 
-        message = "El teléfono debe tener entre 10 y 20 caracteres"
-    )
-    private String phone;
     @Email(message = "El email no es válido")
     @Size(
         min = 5, 

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.campusConnect.CampusConnect.api.dto.request.LoginReq;
 import com.campusConnect.CampusConnect.api.dto.request.RegisterReq;
 import com.campusConnect.CampusConnect.api.dto.response.AuthResp;
 import com.campusConnect.CampusConnect.infrastructure.abstract_services.IAuthService;
@@ -24,8 +25,10 @@ public class AuthController {
 
     //configuracion de rutas publicas
         @PostMapping(path="/auth/login")
-        public String login(){
-            return "DESDE LOGIN";
+        public ResponseEntity<AuthResp> login(
+            @Validated @RequestBody LoginReq request
+        ){
+            return ResponseEntity.ok(this.authService.login(request));
         }
         @PostMapping(path="/auth/register/admin")
         public ResponseEntity<AuthResp> register(

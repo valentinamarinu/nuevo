@@ -21,16 +21,15 @@ import jakarta.persistence.EnumType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
 @Entity(name = "usuario")
 @Data
-@Builder
+@SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
 public class Usuario implements UserDetails {
@@ -71,18 +70,15 @@ public class Usuario implements UserDetails {
     private String foto;
 
     /* Relación tabla Profesor */
-    @OneToOne
-    @JoinColumn(name = "profesor_id", referencedColumnName = "idProfesor")//hace el constraint de el idProfesor en la variable profesor_id
+    @OneToOne(mappedBy = "usuario_id")
     private Profesor profesor;
 
     /* Relación tabla Administrador */
-    @OneToOne
-    @JoinColumn(name = "administrador_id", referencedColumnName = "idAdministrador")
+    @OneToOne (mappedBy = "usuario_id")
     private Administrador administrador;
 
     /* Relación tabla Estudiante */
-    @OneToOne
-    @JoinColumn(name = "estudiante_id", referencedColumnName = "idEstudiante")
+    @OneToOne (mappedBy = "usuario_id")
     private Estudiante estudiante;
 
     @Override
