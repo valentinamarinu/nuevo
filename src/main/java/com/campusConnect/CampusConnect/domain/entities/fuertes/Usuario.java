@@ -86,33 +86,29 @@ public class Usuario implements UserDetails {
         throw new UnsupportedOperationException("Unimplemented method 'getAuthorities'");
     }
 
-    @Override
-    public String getUsername() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getUsername'");
-    }
+   //obtener usuario
+   @Override
+   public String getUsername() {
+       return this.correo;
+   }
 
-    @Override
-    public boolean isAccountNonExpired() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'isAccountNonExpired'");
-    }
+   @Override
+   public boolean isAccountNonExpired() {
+       return true;
+   }
 
-    @Override
-    public boolean isAccountNonLocked() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'isAccountNonLocked'");
-    }
+   @Override
+   public boolean isAccountNonLocked() {
+       return true;
+   }
 
-    @Override
-    public boolean isCredentialsNonExpired() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'isCredentialsNonExpired'");
-    }
+   @Override
+   public boolean isCredentialsNonExpired() {
+      return true;
+   }
 
-    @Override
-    public boolean isEnabled() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'isEnabled'");
-    }
+   @Override
+   public boolean isEnabled() {
+      return true;
+   }
 }

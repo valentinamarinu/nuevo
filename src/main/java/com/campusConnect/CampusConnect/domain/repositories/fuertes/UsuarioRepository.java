@@ -1,5 +1,7 @@
 package com.campusConnect.CampusConnect.domain.repositories.fuertes;
 
+import java.util.Optional;
+
 // import java.util.List;
 // import java.util.Optional;
 
@@ -43,4 +45,6 @@ public interface UsuarioRepository extends JpaRepository<Usuario, String> {
     // @Query(value = "SELECT  u FROM usuario u WHERE u.rol :rol")
     // public List<Usuario> findByRol(Rol rol);
 
+        //@Query(value = "SELECT u FROM usuario u WHERE u.correo :cor")
+        public Optional<Usuario> findByCorreo(String cor);
 }
