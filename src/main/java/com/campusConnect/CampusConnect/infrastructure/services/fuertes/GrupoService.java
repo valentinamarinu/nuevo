@@ -11,18 +11,12 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import com.campusConnect.CampusConnect.api.dto.request.fuertes.AsignaturaClaseReq;
 import com.campusConnect.CampusConnect.api.dto.request.fuertes.GrupoReq;
-import com.campusConnect.CampusConnect.api.dto.response.fuertes.AsignaturaClaseResp;
 import com.campusConnect.CampusConnect.api.dto.response.fuertes.EstudianteToGrupoResp;
 import com.campusConnect.CampusConnect.api.dto.response.fuertes.GrupoResp;
-import com.campusConnect.CampusConnect.domain.entities.debiles.Administrador;
-import com.campusConnect.CampusConnect.domain.entities.debiles.Asignatura;
 import com.campusConnect.CampusConnect.domain.entities.debiles.Estudiante;
-import com.campusConnect.CampusConnect.domain.entities.debiles.Profesor;
 import com.campusConnect.CampusConnect.domain.entities.fuertes.Grupo;
 import com.campusConnect.CampusConnect.domain.entities.fuertes.Usuario;
-import com.campusConnect.CampusConnect.domain.entities.intermedias.Clase;
 import com.campusConnect.CampusConnect.domain.repositories.debiles.ProfesorRepository;
 import com.campusConnect.CampusConnect.domain.repositories.fuertes.GrupoRepository;
 import com.campusConnect.CampusConnect.domain.repositories.fuertes.UsuarioRepository;
