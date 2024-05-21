@@ -2,7 +2,6 @@ package com.campusConnect.CampusConnect.api.dto.response.debiles;
 
 import java.util.Date;
 
-import com.campusConnect.CampusConnect.api.dto.response.fuertes.UEstudianteResp;
 import com.campusConnect.CampusConnect.util.enums.EstadoAnimo;
 
 import lombok.AllArgsConstructor;
@@ -18,5 +17,6 @@ public class SeguimientoPsicologicoResp {
     private Long idSeguimientoPsicologico;
     private Date dia;
     private EstadoAnimo estadoAnimo;
-    private UEstudianteResp estudiante;
+    private String nombreEstudiante;
+    private String apellidosEstudiante;
 }

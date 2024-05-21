@@ -5,5 +5,5 @@ import com.campusConnect.CampusConnect.api.dto.response.debiles.SeguimientoPsico
 import com.campusConnect.CampusConnect.infrastructure.abstract_services.CrudService;
 
 public interface ISeguimientoPsicologicoService extends CrudService<SeguimientoPsicologicoReq, SeguimientoPsicologicoResp, Long> {
-    
+    public final String FIEL_BY_SORT = "dia";
 }

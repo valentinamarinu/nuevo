@@ -21,6 +21,6 @@ public class SeguimientoPsicologicoReq {
     @NotNull(message = "El estado de ánimo del estudiante es requerido.")
     private EstadoAnimo estadoAnimo;
 
-    @NotNull(message = "El id del estudiante es requerido.")
-    private Long idEstudiante;
+    @NotNull(message = "El id del estudiante que registra realiza el registro es requerido.")
+    private String idEstudiante;
 }
