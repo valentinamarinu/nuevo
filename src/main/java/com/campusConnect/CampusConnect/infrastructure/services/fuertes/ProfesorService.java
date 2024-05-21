@@ -38,7 +38,7 @@ public class ProfesorService implements IProfesorService {
 
     @Override
     public Page<UProfesorResp> getAll(int page, int size, SortType sortType) {
-               if (page < 0) page = 0;
+        if (page < 0) page = 0;
         PageRequest pageRequest = null;
 
         switch (sortType) {
