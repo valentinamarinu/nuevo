@@ -65,7 +65,7 @@ public class UProfesorReq {
     /* PENDIENTEEEEEEEEEEEEEEEEEE */
     private String foto;
 
-    @NotNull(message = "El id del profesor es obligatorio")
-    private Long idProfesor;
+    @NotBlank(message = "La información de la hoja de vida del profesor es requerida.")
+    private String hojaVida;
 
 }

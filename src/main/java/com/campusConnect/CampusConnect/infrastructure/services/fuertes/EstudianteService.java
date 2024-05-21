@@ -1,4 +1,4 @@
-package com.campusConnect.CampusConnect.infrastructure.services.debiles;
+package com.campusConnect.CampusConnect.infrastructure.services.fuertes;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -8,7 +8,7 @@ import com.campusConnect.CampusConnect.api.dto.request.fuertes.UEstudianteReq;
 import com.campusConnect.CampusConnect.api.dto.response.fuertes.UEstudianteResp;
 import com.campusConnect.CampusConnect.domain.repositories.debiles.EstudianteRepository;
 import com.campusConnect.CampusConnect.domain.repositories.fuertes.UsuarioRepository;
-import com.campusConnect.CampusConnect.infrastructure.abstract_services.debiles.IEstudianteService;
+import com.campusConnect.CampusConnect.infrastructure.abstract_services.fuertes.IEstudianteService;
 import com.campusConnect.CampusConnect.util.enums.SortType;
 
 import lombok.AllArgsConstructor;

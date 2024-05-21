@@ -14,7 +14,6 @@ import com.campusConnect.CampusConnect.domain.entities.fuertes.Usuario;
 
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuario, String> {
-
     // @Query (value = "SELECT u FROM usuario u JOIN FETCH u.estudiante e WHERE c.id = :idEstudiante ")
     // Optional<Usuario> findByIdEstudiante(Long idEstudiante); //Optional puede que traiga algo puede que no traiga nada
 
@@ -45,6 +44,6 @@ public interface UsuarioRepository extends JpaRepository<Usuario, String> {
     // @Query(value = "SELECT  u FROM usuario u WHERE u.rol :rol")
     // public List<Usuario> findByRol(Rol rol);
 
-        //@Query(value = "SELECT u FROM usuario u WHERE u.correo :cor")
-        public Optional<Usuario> findByCorreo(String cor);
+    //@Query(value = "SELECT u FROM usuario u WHERE u.correo :cor")
+    public Optional<Usuario> findByCorreo(String correo);
 }

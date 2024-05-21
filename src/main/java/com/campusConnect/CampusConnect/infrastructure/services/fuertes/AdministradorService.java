@@ -1,6 +1,5 @@
-package com.campusConnect.CampusConnect.infrastructure.services.debiles;
+package com.campusConnect.CampusConnect.infrastructure.services.fuertes;
 
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -10,13 +9,12 @@ import org.springframework.stereotype.Service;
 
 import com.campusConnect.CampusConnect.api.dto.request.debiles.AdministradorReq;
 import com.campusConnect.CampusConnect.api.dto.request.fuertes.UAdministradorReq;
-import com.campusConnect.CampusConnect.api.dto.response.debiles.AdministradorResp;
 import com.campusConnect.CampusConnect.api.dto.response.fuertes.UAdministradorResp;
 import com.campusConnect.CampusConnect.domain.entities.debiles.Administrador;
 import com.campusConnect.CampusConnect.domain.entities.fuertes.Usuario;
 import com.campusConnect.CampusConnect.domain.repositories.debiles.AdministradorRepository;
 import com.campusConnect.CampusConnect.domain.repositories.fuertes.UsuarioRepository;
-import com.campusConnect.CampusConnect.infrastructure.abstract_services.debiles.IAdministradorService;
+import com.campusConnect.CampusConnect.infrastructure.abstract_services.fuertes.IAdministradorService;
 import com.campusConnect.CampusConnect.util.enums.SortType;
 import com.campusConnect.CampusConnect.util.exceptions.BadRequestException;
 import com.campusConnect.CampusConnect.util.messages.ErrorMessages;
@@ -51,10 +49,11 @@ public class AdministradorService implements IAdministradorService {
 
     @Override
     public UAdministradorResp create(UAdministradorReq request) {
-        Administrador administrador = this.administradorRepository.findById(request.getIdAdministrador())
-        .orElseThrow(() -> new BadRequestException(ErrorMessages.idNotFound("Administrador")));
-
         Usuario usuario = this.usuarioRequestToEntity(request);
+
+        Administrador administrador = Administrador.builder().descripcionCargo(request.getDescripcionCargo()).build();
+        
+        administradorRepository.save(administrador);
 
         usuario.setAdministrador(administrador);
 
@@ -65,7 +64,7 @@ public class AdministradorService implements IAdministradorService {
     public UAdministradorResp update(UAdministradorReq request, String id) {
         Usuario usuario = this.find(id);
 
-        Administrador administrador = this.administradorRepository.findById(request.getIdAdministrador())
+        Administrador administrador = this.administradorRepository.findById(usuario.getAdministrador().getIdAdministrador())
         .orElseThrow(() -> new BadRequestException(ErrorMessages.idNotFound("Administrador")));
 
         usuario = this.usuarioRequestToEntity(request);
@@ -87,9 +86,6 @@ public class AdministradorService implements IAdministradorService {
     }
 
     private UAdministradorResp usuarioToResponse(Usuario usuario) { 
-        AdministradorResp administrador = new AdministradorResp();
-        BeanUtils.copyProperties(usuario.getAdministrador(), administrador);
-
         return UAdministradorResp.builder()
                 .idUsuario(usuario.getIdUsuario())
                 .nombre(usuario.getNombre())
@@ -102,13 +98,12 @@ public class AdministradorService implements IAdministradorService {
                 .rol(usuario.getRol())
                 .password(usuario.getPassword())
                 .foto(usuario.getFoto())
-                .descripcionCargo(administrador.getDescripcionCargo())
+                .descripcionCargo(usuario.getAdministrador().getDescripcionCargo())
                 .build();
     }
 
     private Usuario usuarioRequestToEntity(UAdministradorReq request) {
         AdministradorReq administradorReq = new AdministradorReq();
-        BeanUtils.copyProperties(request.getIdAdministrador(), administradorReq);
 
         return Usuario.builder()
                 .nombre(request.getNombre())

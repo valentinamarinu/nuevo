@@ -1,4 +1,4 @@
-package com.campusConnect.CampusConnect.infrastructure.abstract_services.debiles;
+package com.campusConnect.CampusConnect.infrastructure.abstract_services.fuertes;
 
 import com.campusConnect.CampusConnect.api.dto.request.fuertes.UEstudianteReq;
 import com.campusConnect.CampusConnect.api.dto.response.fuertes.UEstudianteResp;

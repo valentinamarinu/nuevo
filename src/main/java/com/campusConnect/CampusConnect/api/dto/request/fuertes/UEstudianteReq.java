@@ -65,6 +65,6 @@ public class UEstudianteReq {
     /* PENDIENTEEEEEEEEEEEEEEEEEE */
     private String foto;
 
-    @NotNull(message = "El id del estudiante es obligatorio")
-    private Long idEstudiante;
+    @NotBlank(message = "La información de los acudientes del estudiante es requerida.")
+    private String acudientes;
 }

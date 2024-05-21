@@ -7,6 +7,11 @@ import com.campusConnect.CampusConnect.api.dto.response.debiles.AsignaturaResp;
 import com.campusConnect.CampusConnect.api.dto.response.fuertes.GrupoResp;
 import com.campusConnect.CampusConnect.api.dto.response.fuertes.UProfesorResp;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 @Builder
 @Data
 @AllArgsConstructor

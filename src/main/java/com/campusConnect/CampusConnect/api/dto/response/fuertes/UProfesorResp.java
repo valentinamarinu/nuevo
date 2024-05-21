@@ -28,5 +28,5 @@ public class UProfesorResp {
     private String foto;
     private String hojaVida;
     private String grupo;
-    private List<ClaseToProfesorResp> clases;
+    // private List<ClaseToProfesorResp> clases;
 }

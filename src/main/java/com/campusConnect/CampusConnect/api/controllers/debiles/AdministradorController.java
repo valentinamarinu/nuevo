@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.campusConnect.CampusConnect.api.dto.request.fuertes.UAdministradorReq;
 import com.campusConnect.CampusConnect.api.dto.response.fuertes.UAdministradorResp;
-import com.campusConnect.CampusConnect.infrastructure.abstract_services.debiles.IAdministradorService;
+import com.campusConnect.CampusConnect.infrastructure.abstract_services.fuertes.IAdministradorService;
 import com.campusConnect.CampusConnect.util.enums.SortType;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -31,9 +31,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-
-
-
 @RestController
 @RequestMapping(path = "/administrador")
 @Data
@@ -44,7 +41,7 @@ public class AdministradorController {
     private final IAdministradorService administradorService;
 
     @GetMapping
-    @Operation(summary = "Obtiene los administradores de la plataforma de forma páginada")
+    @Operation(summary = "Obtiene los usuarios de tipo administrador de la plataforma de forma páginada y organizada por orden")
     public ResponseEntity<Page<UAdministradorResp>> getAll(
         @RequestParam(defaultValue = "1") int page,
         @RequestParam(defaultValue = "5") int size,

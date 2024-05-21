@@ -11,6 +11,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class AdministradorReq {
-    @NotBlank(message = "La descripciòn del cargo es requerida.")
+    @NotBlank(message = "La descripción del cargo es requerida.")
     private String descripcionCargo;
 }

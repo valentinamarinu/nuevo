@@ -65,7 +65,7 @@ public class UAdministradorReq {
     /* PENDIENTEEEEEEEEEEEEEEEEEE */
     private String foto;
 
-    @NotNull(message = "El id del administrador es obligatorio")
-    private Long idAdministrador;
+    @NotNull(message = "La descripción del cargo es obligatoria.")
+    private String descripcionCargo;
 
 }
