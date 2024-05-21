@@ -35,42 +35,45 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class AsignaturaController {
-    /* Inyección de dependencias*/
+    /* Inyección de dependencias */
     @Autowired
     private final IAsignaturaClaseService service;
 
     @GetMapping
     @Operation(summary = "Obtiene las asignaturas de forma páginada y organizada por nombre")
     public ResponseEntity<Page<AsignaturaClaseResp>> getAll(
-        @RequestParam(defaultValue = "1") int page,
-        @RequestParam(defaultValue = "5") int size,
-        @RequestHeader(required = false) SortType sortType) {
-            if (Objects.isNull(sortType)) {
-                sortType = SortType.NONE;
-            }
-            
-            return ResponseEntity.ok(this.service.getAll(page - 1, size, sortType));
+            @RequestParam(defaultValue = "1") int page,
+            @RequestParam(defaultValue = "5") int size,
+            @RequestHeader(required = false) SortType sortType) {
+        if (Objects.isNull(sortType)) {
+            sortType = SortType.NONE;
+        }
+
+        return ResponseEntity.ok(this.service.getAll(page - 1, size, sortType));
     }
 
     @PostMapping
     @Operation(summary = "Crea una asignatura")
-    @ApiResponse(responseCode = "400", description = "Cuando el id no es valido", content = {@Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))})
+    @ApiResponse(responseCode = "400", description = "Cuando el id no es valido", content = {
+            @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class)) })
     public ResponseEntity<AsignaturaClaseResp> create(
-        @Validated AsignaturaClaseReq request) {
+            @Validated AsignaturaClaseReq request) {
         return ResponseEntity.ok(this.service.create(request));
     }
 
     @PutMapping(path = "/{id}")
     @Operation(summary = "Actualiza una asignatura por id")
-    @ApiResponse(responseCode = "400", description = "Cuando el id no es valido", content = {@Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))})
+    @ApiResponse(responseCode = "400", description = "Cuando el id no es valido", content = {
+            @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class)) })
     public ResponseEntity<AsignaturaClaseResp> update(
-        @PathVariable Long id, @Validated @RequestBody AsignaturaClaseReq request) {
+            @PathVariable Long id, @Validated @RequestBody AsignaturaClaseReq request) {
         return ResponseEntity.ok(this.service.update(request, id));
     }
-   
+
     @DeleteMapping(path = "/{id}")
     @Operation(summary = "Elimina una asignatura por id")
-    @ApiResponse(responseCode = "400", description = "Cuando el id no es valido", content = {@Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))})
+    @ApiResponse(responseCode = "400", description = "Cuando el id no es valido", content = {
+            @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class)) })
     public ResponseEntity<Void> delete(@PathVariable Long id) {
         this.service.delete(id);
 
@@ -79,7 +82,8 @@ public class AsignaturaController {
 
     @GetMapping(path = "/{id}")
     @Operation(summary = "Obtiene una asignatura por id")
-    @ApiResponse(responseCode = "400", description = "Cuando el id no es valido", content = {@Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))})
+    @ApiResponse(responseCode = "400", description = "Cuando el id no es valido", content = {
+            @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class)) })
     public ResponseEntity<AsignaturaClaseResp> getById(@PathVariable Long id) {
         return ResponseEntity.ok(this.service.getById(id));
     }

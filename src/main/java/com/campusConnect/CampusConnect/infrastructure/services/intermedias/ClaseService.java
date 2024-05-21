@@ -5,7 +5,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
 import com.campusConnect.CampusConnect.api.dto.request.intermedias.ClaseReq;
-import com.campusConnect.CampusConnect.api.dto.response.intermedias.ClaseResp;
+import com.campusConnect.CampusConnect.api.dto.response.fuertes.intermedias.ClaseResp;
 import com.campusConnect.CampusConnect.domain.repositories.intermedias.ClaseRepository;
 import com.campusConnect.CampusConnect.infrastructure.abstract_services.intermedias.IClaseService;
 import com.campusConnect.CampusConnect.util.enums.SortType;

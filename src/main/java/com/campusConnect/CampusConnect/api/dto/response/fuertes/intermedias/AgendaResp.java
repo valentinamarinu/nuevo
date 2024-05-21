@@ -1,4 +1,4 @@
-package com.campusConnect.CampusConnect.api.dto.response.intermedias;
+package com.campusConnect.CampusConnect.api.dto.response.fuertes.intermedias;
 
 import java.sql.Date;
 import java.sql.Time;

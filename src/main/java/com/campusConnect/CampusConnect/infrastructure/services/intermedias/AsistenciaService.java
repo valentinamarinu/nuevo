@@ -5,7 +5,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
 import com.campusConnect.CampusConnect.api.dto.request.intermedias.AsistenciaReq;
-import com.campusConnect.CampusConnect.api.dto.response.intermedias.AsistenciaResp;
+import com.campusConnect.CampusConnect.api.dto.response.fuertes.intermedias.AsistenciaResp;
 import com.campusConnect.CampusConnect.domain.repositories.intermedias.AsistenciaRepository;
 import com.campusConnect.CampusConnect.infrastructure.abstract_services.intermedias.IAsistenciaService;
 import com.campusConnect.CampusConnect.util.enums.SortType;

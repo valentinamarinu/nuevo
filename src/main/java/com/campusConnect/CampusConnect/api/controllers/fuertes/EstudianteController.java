@@ -35,42 +35,45 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class EstudianteController {
-        /* Inyección de dependencias*/
+        /* Inyección de dependencias */
         @Autowired
         private final IEstudianteService estudianteService;
 
         @GetMapping
         @Operation(summary = "Obtiene los usuarios de tipo estudiante de la plataforma de forma páginada y organizada por nombre")
         public ResponseEntity<Page<UEstudianteResp>> getAll(
-                @RequestParam(defaultValue = "1") int page,
-                @RequestParam(defaultValue = "5") int size,
-                @RequestHeader(required = false) SortType sortType) {
+                        @RequestParam(defaultValue = "1") int page,
+                        @RequestParam(defaultValue = "5") int size,
+                        @RequestHeader(required = false) SortType sortType) {
                 if (Objects.isNull(sortType)) {
                         sortType = SortType.NONE;
                 }
-                
+
                 return ResponseEntity.ok(this.estudianteService.getAll(page - 1, size, sortType));
         }
 
         @PostMapping
         @Operation(summary = "Crea un estudiante")
-        @ApiResponse(responseCode = "400", description = "Cuando el id no es valido", content = {@Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))})
+        @ApiResponse(responseCode = "400", description = "Cuando el id no es valido", content = {
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class)) })
         public ResponseEntity<UEstudianteResp> create(
-                @Validated UEstudianteReq request) {
+                        @Validated UEstudianteReq request) {
                 return ResponseEntity.ok(this.estudianteService.create(request));
         }
 
         @PutMapping(path = "/{id}")
         @Operation(summary = "Actualiza un estudiante por id")
-        @ApiResponse(responseCode = "400", description = "Cuando el id no es valido", content = {@Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))})
+        @ApiResponse(responseCode = "400", description = "Cuando el id no es valido", content = {
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class)) })
         public ResponseEntity<UEstudianteResp> update(
-                @PathVariable String id, @Validated @RequestBody UEstudianteReq request) {
+                        @PathVariable String id, @Validated @RequestBody UEstudianteReq request) {
                 return ResponseEntity.ok(this.estudianteService.update(request, id));
         }
 
         @DeleteMapping(path = "/{id}")
         @Operation(summary = "Elimina un estudiante por id")
-        @ApiResponse(responseCode = "400", description = "Cuando el id no es valido", content = {@Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))})
+        @ApiResponse(responseCode = "400", description = "Cuando el id no es valido", content = {
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class)) })
         public ResponseEntity<Void> delete(@PathVariable String id) {
                 this.estudianteService.delete(id);
 
@@ -79,7 +82,8 @@ public class EstudianteController {
 
         @GetMapping(path = "/{id}")
         @Operation(summary = "Obtiene un estudiante por id")
-        @ApiResponse(responseCode = "400", description = "Cuando el id no es valido", content = {@Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))})
+        @ApiResponse(responseCode = "400", description = "Cuando el id no es valido", content = {
+                        @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class)) })
         public ResponseEntity<UEstudianteResp> getById(@PathVariable String id) {
                 return ResponseEntity.ok(this.estudianteService.getById(id));
         }

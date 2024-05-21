@@ -27,7 +27,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class UProfesorReq {
-@NotBlank(message = "El nombre es requerido.")
+    @NotBlank(message = "El nombre es requerido.")
     private String nombre;
 
     @NotBlank(message = "Los apellidos son requeridos.")

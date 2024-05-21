@@ -36,42 +36,45 @@ import org.springframework.web.bind.annotation.PathVariable;
 @Data
 @AllArgsConstructor
 public class AdministradorController {
-    /* Inyección de dependencias*/
+    /* Inyección de dependencias */
     @Autowired
     private final IAdministradorService administradorService;
 
     @GetMapping
     @Operation(summary = "Obtiene los usuarios de tipo administrador de la plataforma de forma páginada y organizada por nombre")
     public ResponseEntity<Page<UAdministradorResp>> getAll(
-        @RequestParam(defaultValue = "1") int page,
-        @RequestParam(defaultValue = "5") int size,
-        @RequestHeader(required = false) SortType sortType) {
-            if (Objects.isNull(sortType)) {
-                sortType = SortType.NONE;
-            }
-            
-            return ResponseEntity.ok(this.administradorService.getAll(page - 1, size, sortType));
+            @RequestParam(defaultValue = "1") int page,
+            @RequestParam(defaultValue = "5") int size,
+            @RequestHeader(required = false) SortType sortType) {
+        if (Objects.isNull(sortType)) {
+            sortType = SortType.NONE;
+        }
+
+        return ResponseEntity.ok(this.administradorService.getAll(page - 1, size, sortType));
     }
 
     @PostMapping
     @Operation(summary = "Crea un administrador")
-    @ApiResponse(responseCode = "400", description = "Cuando el id no es valido", content = {@Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))})
+    @ApiResponse(responseCode = "400", description = "Cuando el id no es valido", content = {
+            @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class)) })
     public ResponseEntity<UAdministradorResp> create(
-        @Validated UAdministradorReq request) {
+            @Validated UAdministradorReq request) {
         return ResponseEntity.ok(this.administradorService.create(request));
     }
 
     @PutMapping(path = "/{id}")
     @Operation(summary = "Actualiza un administrador por id")
-    @ApiResponse(responseCode = "400", description = "Cuando el id no es valido", content = {@Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))})
+    @ApiResponse(responseCode = "400", description = "Cuando el id no es valido", content = {
+            @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class)) })
     public ResponseEntity<UAdministradorResp> update(
-        @PathVariable String id, @Validated @RequestBody UAdministradorReq request) {
+            @PathVariable String id, @Validated @RequestBody UAdministradorReq request) {
         return ResponseEntity.ok(this.administradorService.update(request, id));
     }
-   
+
     @DeleteMapping(path = "/{id}")
     @Operation(summary = "Elimina un administrador por id")
-    @ApiResponse(responseCode = "400", description = "Cuando el id no es valido", content = {@Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))})
+    @ApiResponse(responseCode = "400", description = "Cuando el id no es valido", content = {
+            @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class)) })
     public ResponseEntity<Void> delete(@PathVariable String id) {
         this.administradorService.delete(id);
 
@@ -80,7 +83,8 @@ public class AdministradorController {
 
     @GetMapping(path = "/{id}")
     @Operation(summary = "Obtiene un administrador por id")
-    @ApiResponse(responseCode = "400", description = "Cuando el id no es valido", content = {@Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))})
+    @ApiResponse(responseCode = "400", description = "Cuando el id no es valido", content = {
+            @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class)) })
     public ResponseEntity<UAdministradorResp> getById(@PathVariable String id) {
         return ResponseEntity.ok(this.administradorService.getById(id));
     }

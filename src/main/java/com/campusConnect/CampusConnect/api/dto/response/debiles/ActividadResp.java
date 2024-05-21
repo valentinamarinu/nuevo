@@ -1,6 +1,6 @@
 package com.campusConnect.CampusConnect.api.dto.response.debiles;
 
-import com.campusConnect.CampusConnect.api.dto.response.intermedias.ClaseResp;
+import com.campusConnect.CampusConnect.api.dto.response.fuertes.intermedias.ClaseResp;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

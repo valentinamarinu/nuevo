@@ -14,9 +14,8 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class ActividadController {
-    /* Inyección de dependencias*/
+    /* Inyección de dependencias */
     @Autowired
     private final IActividadService actividadService;
 
-    
 }
