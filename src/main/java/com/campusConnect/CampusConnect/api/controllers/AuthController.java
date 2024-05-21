@@ -29,6 +29,7 @@ public class AuthController {
     @Operation(summary = "Inicio de sesión usuarios")
     @PostMapping(path="/auth/login")
     public ResponseEntity<AuthResp> login(@Validated @RequestBody LoginReq request){
+        //hola
         return ResponseEntity.ok(this.authService.login(request));
     }
 
