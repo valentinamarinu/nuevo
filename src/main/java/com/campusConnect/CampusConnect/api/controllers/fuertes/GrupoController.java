@@ -19,9 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.campusConnect.CampusConnect.api.dto.request.fuertes.GrupoReq;
-import com.campusConnect.CampusConnect.api.dto.request.fuertes.UAdministradorReq;
 import com.campusConnect.CampusConnect.api.dto.response.fuertes.GrupoResp;
-import com.campusConnect.CampusConnect.api.dto.response.fuertes.UAdministradorResp;
 import com.campusConnect.CampusConnect.infrastructure.abstract_services.fuertes.IGrupoService;
 import com.campusConnect.CampusConnect.util.enums.SortType;
 
