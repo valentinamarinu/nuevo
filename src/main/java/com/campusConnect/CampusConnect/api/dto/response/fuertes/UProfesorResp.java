@@ -1,5 +1,7 @@
 package com.campusConnect.CampusConnect.api.dto.response.fuertes;
 
+import java.math.BigInteger;
+import java.util.Date;
 import java.util.List;
 
 import com.campusConnect.CampusConnect.util.enums.Rol;
@@ -16,11 +18,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class UProfesorResp {
     private String idUsuario;
-    private String nombres;
+    private String nombre;
     private String apellidos;
     private TipoDocumento tipoDocumento;
-    private int documento;
-    private Integer edad;
+    private BigInteger documento;
+    private Date fechaNacimiento;
     private String correo;
     private String telefono;
     private Rol rol;
@@ -28,5 +30,5 @@ public class UProfesorResp {
     private String foto;
     private String hojaVida;
     private String grupo;
-    // private List<ClaseToProfesorResp> clases;
+    private List<String> clases;
 }

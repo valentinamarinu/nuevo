@@ -8,10 +8,10 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.campusConnect.CampusConnect.api.dto.request.LoginReq;
 import com.campusConnect.CampusConnect.api.dto.request.fuertes.UAdministradorReq;
 import com.campusConnect.CampusConnect.api.dto.request.fuertes.UEstudianteReq;
 import com.campusConnect.CampusConnect.api.dto.request.fuertes.UProfesorReq;
-import com.campusConnect.CampusConnect.api.dto.request.security.LoginReq;
 import com.campusConnect.CampusConnect.api.dto.response.AuthResp;
 import com.campusConnect.CampusConnect.domain.entities.debiles.Administrador;
 import com.campusConnect.CampusConnect.domain.entities.debiles.Estudiante;

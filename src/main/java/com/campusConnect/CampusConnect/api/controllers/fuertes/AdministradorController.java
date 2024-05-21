@@ -1,4 +1,4 @@
-package com.campusConnect.CampusConnect.api.controllers.debiles;
+package com.campusConnect.CampusConnect.api.controllers.fuertes;
 
 import java.util.Objects;
 
@@ -49,7 +49,7 @@ public class AdministradorController {
             if (Objects.isNull(sortType)) {
                 sortType = SortType.NONE;
             }
-
+            
             return ResponseEntity.ok(this.administradorService.getAll(page - 1, size, sortType));
     }
 

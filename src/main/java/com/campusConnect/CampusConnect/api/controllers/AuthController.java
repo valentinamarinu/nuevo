@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.campusConnect.CampusConnect.api.dto.request.LoginReq;
 import com.campusConnect.CampusConnect.api.dto.request.fuertes.UAdministradorReq;
-import com.campusConnect.CampusConnect.api.dto.request.security.LoginReq;
 import com.campusConnect.CampusConnect.api.dto.response.AuthResp;
 import com.campusConnect.CampusConnect.infrastructure.abstract_services.IAuthService;
 

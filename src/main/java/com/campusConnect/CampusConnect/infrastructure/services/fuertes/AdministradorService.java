@@ -7,7 +7,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import com.campusConnect.CampusConnect.api.dto.request.debiles.AdministradorReq;
 import com.campusConnect.CampusConnect.api.dto.request.fuertes.UAdministradorReq;
 import com.campusConnect.CampusConnect.api.dto.response.fuertes.UAdministradorResp;
 import com.campusConnect.CampusConnect.domain.entities.debiles.Administrador;
@@ -69,8 +68,8 @@ public class AdministradorService implements IAdministradorService {
 
         usuario = this.usuarioRequestToEntity(request);
 
-        usuario.setAdministrador(administrador);
         usuario.setIdUsuario(id);
+        usuario.setAdministrador(administrador);
 
         return this.usuarioToResponse(this.usuarioRepository.save(usuario));
     }
@@ -87,7 +86,6 @@ public class AdministradorService implements IAdministradorService {
 
     private UAdministradorResp usuarioToResponse(Usuario usuario) { 
         return UAdministradorResp.builder()
-                .idUsuario(usuario.getIdUsuario())
                 .nombre(usuario.getNombre())
                 .apellidos(usuario.getApellidos())
                 .tipoDocumento(usuario.getTipoDocumento())
@@ -103,7 +101,7 @@ public class AdministradorService implements IAdministradorService {
     }
 
     private Usuario usuarioRequestToEntity(UAdministradorReq request) {
-        AdministradorReq administradorReq = new AdministradorReq();
+        Administrador administrador = Administrador.builder().descripcionCargo(request.getDescripcionCargo()).build();
 
         return Usuario.builder()
                 .nombre(request.getNombre())
@@ -116,13 +114,7 @@ public class AdministradorService implements IAdministradorService {
                 .rol(request.getRol())
                 .password(request.getPassword())
                 .foto(request.getFoto())
-                .administrador(administradorRequestToEntity(administradorReq))
-                .build();
-    }
-
-    private Administrador administradorRequestToEntity(AdministradorReq request) {
-        return Administrador.builder()
-                .descripcionCargo(request.getDescripcionCargo())
+                .administrador(administrador)
                 .build();
     }
 

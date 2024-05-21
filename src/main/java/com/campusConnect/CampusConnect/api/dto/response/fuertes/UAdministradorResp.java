@@ -29,17 +29,3 @@ public class UAdministradorResp {
     private String foto;
     private String descripcionCargo;
 }
-
-
-/*
- * entityToResponse
- * 
- * List<String> nombres = entity.getUEstudiante().stream().map( estudiante -> estudiante.getName()).colector(blahblah)
- * 
- * 
- * 
- * 
- * AsignaturaGrupoResp.builder()
- * .estudiantes(nombres)
- * .build()
- */

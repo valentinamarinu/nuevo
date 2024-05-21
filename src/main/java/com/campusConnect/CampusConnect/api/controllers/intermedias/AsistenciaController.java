@@ -1,4 +1,4 @@
-package com.campusConnect.CampusConnect.api.controllers.debiles;
+package com.campusConnect.CampusConnect.api.controllers.intermedias;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;

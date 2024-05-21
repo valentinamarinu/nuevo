@@ -1,4 +1,4 @@
-package com.campusConnect.CampusConnect.api.dto.request.security;
+package com.campusConnect.CampusConnect.api.dto.request;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
