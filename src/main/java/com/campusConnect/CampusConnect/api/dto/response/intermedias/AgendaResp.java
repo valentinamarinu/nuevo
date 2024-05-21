@@ -3,7 +3,7 @@ package com.campusConnect.CampusConnect.api.dto.response.intermedias;
 import java.sql.Date;
 import java.sql.Time;
 
-import com.campusConnect.CampusConnect.api.dto.response.fuertes.EventoResp;
+import com.campusConnect.CampusConnect.api.dto.response.fuertes.EventoAgendaResp;
 import com.campusConnect.CampusConnect.api.dto.response.fuertes.GrupoResp;
 
 import lombok.AllArgsConstructor;
@@ -23,6 +23,6 @@ public class AgendaResp {
     private Time eventStartTime;
     private Time eventEndTime;
     private String eventLocation;
-    private EventoResp evento;
+    private EventoAgendaResp evento;
     private GrupoResp grupo;
 }

@@ -31,7 +31,7 @@ public class Agenda {
     private Long idAgenda;
 
     @Column(nullable = false)
-    private Date eventTitle;
+    private String eventTitle;
 
     @Column(nullable = false)
     private Date eventStartDate;
