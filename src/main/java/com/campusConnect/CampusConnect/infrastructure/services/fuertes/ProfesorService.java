@@ -48,12 +48,12 @@ public class ProfesorService implements IProfesorService {
         }
 
         Pageable pageable = pageRequest;
-        return this.usuarioRepository.findAll(pageable).map(this::usuarioToResponse);
+        return this.usuarioRepository.findAll(pageable).map(this::entityToResponse);
     }
 
     @Override
     public UProfesorResp create(UProfesorReq request) {
-        Usuario usuario = this.usuarioRequestToEntity(request);
+        Usuario usuario = this.requestToEntity(request);
 
         Profesor profesor = Profesor.builder()
                             .hojaVida(request.getHojaVida())
@@ -65,7 +65,7 @@ public class ProfesorService implements IProfesorService {
 
         usuario.setProfesor(profesor);
 
-        return this.usuarioToResponse(this.usuarioRepository.save(usuario));
+        return this.entityToResponse(this.usuarioRepository.save(usuario));
     }
 
     @Override
@@ -75,12 +75,12 @@ public class ProfesorService implements IProfesorService {
         Profesor profesor = this.profesorRepository.findById(usuario.getProfesor().getIdProfesor())
         .orElseThrow(() -> new BadRequestException(ErrorMessages.idNotFound("Profesor")));
 
-        usuario = this.usuarioRequestToEntity(request);
+        usuario = this.requestToEntity(request);
 
         usuario.setIdUsuario(id);
         usuario.setProfesor(profesor);
 
-        return this.usuarioToResponse(this.usuarioRepository.save(usuario));
+        return this.entityToResponse(this.usuarioRepository.save(usuario));
     }
 
     @Override
@@ -90,10 +90,10 @@ public class ProfesorService implements IProfesorService {
 
     @Override
     public UProfesorResp getById(String id) {
-        return this.usuarioToResponse(this.find(id));
+        return this.entityToResponse(this.find(id));
     }
 
-    private UProfesorResp usuarioToResponse(Usuario usuario) { 
+    private UProfesorResp entityToResponse(Usuario usuario) { 
         Profesor profesor = usuario.getProfesor();
         
         List<String> asignaturas = profesor.getClases().stream().map(clases -> clases.getAsignatura().getNombre()).collect(Collectors.toList());
@@ -115,7 +115,7 @@ public class ProfesorService implements IProfesorService {
                 .build();
     }
 
-    private Usuario usuarioRequestToEntity(UProfesorReq request) {
+    private Usuario requestToEntity(UProfesorReq request) {
         Profesor profesor = Profesor.builder()
                             .hojaVida(request.getHojaVida())
                             .grupo(new Grupo())

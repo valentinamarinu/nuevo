@@ -6,13 +6,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.ErrorResponse;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.campusConnect.CampusConnect.api.dto.request.fuertes.UAdministradorReq;
-import com.campusConnect.CampusConnect.api.dto.response.fuertes.UAdministradorResp;
-import com.campusConnect.CampusConnect.infrastructure.abstract_services.fuertes.IAdministradorService;
+import com.campusConnect.CampusConnect.api.dto.request.fuertes.AsignaturaClaseReq;
+import com.campusConnect.CampusConnect.api.dto.response.fuertes.AsignaturaClaseResp;
+import com.campusConnect.CampusConnect.infrastructure.abstract_services.fuertes.IAsignaturaClaseService;
 import com.campusConnect.CampusConnect.util.enums.SortType;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -22,27 +30,18 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-import org.springframework.web.ErrorResponse;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-
 @RestController
-@RequestMapping(path = "/administrador")
+@RequestMapping("/asignatura")
 @Data
 @AllArgsConstructor
-public class AdministradorController {
+public class AsignaturaController {
     /* Inyección de dependencias*/
     @Autowired
-    private final IAdministradorService administradorService;
+    private final IAsignaturaClaseService service;
 
     @GetMapping
-    @Operation(summary = "Obtiene los usuarios de tipo administrador de la plataforma de forma páginada y organizada por nombre")
-    public ResponseEntity<Page<UAdministradorResp>> getAll(
+    @Operation(summary = "Obtiene las asignaturas de forma páginada y organizada por nombre")
+    public ResponseEntity<Page<AsignaturaClaseResp>> getAll(
         @RequestParam(defaultValue = "1") int page,
         @RequestParam(defaultValue = "5") int size,
         @RequestHeader(required = false) SortType sortType) {
@@ -50,38 +49,38 @@ public class AdministradorController {
                 sortType = SortType.NONE;
             }
             
-            return ResponseEntity.ok(this.administradorService.getAll(page - 1, size, sortType));
+            return ResponseEntity.ok(this.service.getAll(page - 1, size, sortType));
     }
 
     @PostMapping
-    @Operation(summary = "Crea un administrador")
+    @Operation(summary = "Crea una asignatura")
     @ApiResponse(responseCode = "400", description = "Cuando el id no es valido", content = {@Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))})
-    public ResponseEntity<UAdministradorResp> create(
-        @Validated UAdministradorReq request) {
-        return ResponseEntity.ok(this.administradorService.create(request));
+    public ResponseEntity<AsignaturaClaseResp> create(
+        @Validated AsignaturaClaseReq request) {
+        return ResponseEntity.ok(this.service.create(request));
     }
 
     @PutMapping(path = "/{id}")
-    @Operation(summary = "Actualiza un administrador por id")
+    @Operation(summary = "Actualiza una asignatura por id")
     @ApiResponse(responseCode = "400", description = "Cuando el id no es valido", content = {@Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))})
-    public ResponseEntity<UAdministradorResp> update(
-        @PathVariable String id, @Validated @RequestBody UAdministradorReq request) {
-        return ResponseEntity.ok(this.administradorService.update(request, id));
+    public ResponseEntity<AsignaturaClaseResp> update(
+        @PathVariable Long id, @Validated @RequestBody AsignaturaClaseReq request) {
+        return ResponseEntity.ok(this.service.update(request, id));
     }
    
     @DeleteMapping(path = "/{id}")
-    @Operation(summary = "Elimina un administrador por id")
+    @Operation(summary = "Elimina una asignatura por id")
     @ApiResponse(responseCode = "400", description = "Cuando el id no es valido", content = {@Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))})
-    public ResponseEntity<Void> delete(@PathVariable String id) {
-        this.administradorService.delete(id);
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        this.service.delete(id);
 
         return ResponseEntity.noContent().build();
     }
 
     @GetMapping(path = "/{id}")
-    @Operation(summary = "Obtiene un administrador por id")
+    @Operation(summary = "Obtiene una asignatura por id")
     @ApiResponse(responseCode = "400", description = "Cuando el id no es valido", content = {@Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))})
-    public ResponseEntity<UAdministradorResp> getById(@PathVariable String id) {
-        return ResponseEntity.ok(this.administradorService.getById(id));
+    public ResponseEntity<AsignaturaClaseResp> getById(@PathVariable Long id) {
+        return ResponseEntity.ok(this.service.getById(id));
     }
 }

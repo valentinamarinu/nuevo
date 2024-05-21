@@ -46,12 +46,12 @@ public class EstudianteService implements IEstudianteService {
         }
 
         Pageable pageable = pageRequest;
-        return this.usuarioRepository.findAll(pageable).map(this::usuarioToResponse);
+        return this.usuarioRepository.findAll(pageable).map(this::entityToResponse);
     }
 
     @Override
     public UEstudianteResp create(UEstudianteReq request) {
-        Usuario usuario = this.usuarioRequestToEntity(request);
+        Usuario usuario = this.requestToEntity(request);
 
         Estudiante estudiante = Estudiante.builder()
                                 .acudientes(request.getAcudientes())
@@ -64,7 +64,7 @@ public class EstudianteService implements IEstudianteService {
 
         usuario.setEstudiante(estudiante);
 
-        return this.usuarioToResponse(this.usuarioRepository.save(usuario));
+        return this.entityToResponse(this.usuarioRepository.save(usuario));
     }
 
     @Override
@@ -74,12 +74,12 @@ public class EstudianteService implements IEstudianteService {
         Estudiante estudiante = this.estudianteRepository.findById(usuario.getEstudiante().getIdEstudiante())
         .orElseThrow(() -> new BadRequestException(ErrorMessages.idNotFound("Estudiante")));
 
-        usuario = this.usuarioRequestToEntity(request);
+        usuario = this.requestToEntity(request);
 
         usuario.setIdUsuario(id);
         usuario.setEstudiante(estudiante);
 
-        return this.usuarioToResponse(this.usuarioRepository.save(usuario));
+        return this.entityToResponse(this.usuarioRepository.save(usuario));
     }
 
     @Override
@@ -89,10 +89,10 @@ public class EstudianteService implements IEstudianteService {
 
     @Override
     public UEstudianteResp getById(String id) {
-        return this.usuarioToResponse(this.find(id));
+        return this.entityToResponse(this.find(id));
     }
 
-    private UEstudianteResp usuarioToResponse(Usuario usuario) { 
+    private UEstudianteResp entityToResponse(Usuario usuario) { 
         return UEstudianteResp.builder()
                 .nombre(usuario.getNombre())
                 .apellidos(usuario.getApellidos())
@@ -109,7 +109,7 @@ public class EstudianteService implements IEstudianteService {
                 .build();
     }
 
-    private Usuario usuarioRequestToEntity(UEstudianteReq request) {
+    private Usuario requestToEntity(UEstudianteReq request) {
         Estudiante estudiante = Estudiante.builder()
                             .acudientes(request.getAcudientes())
                             .seguimientosPsicologicos(new ArrayList<>())

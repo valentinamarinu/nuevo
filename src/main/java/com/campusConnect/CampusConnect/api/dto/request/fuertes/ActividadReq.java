@@ -1,4 +1,4 @@
-package com.campusConnect.CampusConnect.api.dto.request.debiles;
+package com.campusConnect.CampusConnect.api.dto.request.fuertes;
 
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;

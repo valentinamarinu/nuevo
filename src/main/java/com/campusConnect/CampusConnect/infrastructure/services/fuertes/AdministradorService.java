@@ -43,12 +43,12 @@ public class AdministradorService implements IAdministradorService {
         }
 
         Pageable pageable = pageRequest;
-        return this.usuarioRepository.findAll(pageable).map(this::usuarioToResponse);
+        return this.usuarioRepository.findAll(pageable).map(this::entityToResponse);
     }
 
     @Override
     public UAdministradorResp create(UAdministradorReq request) {
-        Usuario usuario = this.usuarioRequestToEntity(request);
+        Usuario usuario = this.requestToEntity(request);
 
         Administrador administrador = Administrador.builder().descripcionCargo(request.getDescripcionCargo()).build();
         
@@ -56,7 +56,7 @@ public class AdministradorService implements IAdministradorService {
 
         usuario.setAdministrador(administrador);
 
-        return this.usuarioToResponse(this.usuarioRepository.save(usuario));
+        return this.entityToResponse(this.usuarioRepository.save(usuario));
     }
 
     @Override
@@ -66,12 +66,12 @@ public class AdministradorService implements IAdministradorService {
         Administrador administrador = this.administradorRepository.findById(usuario.getAdministrador().getIdAdministrador())
         .orElseThrow(() -> new BadRequestException(ErrorMessages.idNotFound("Administrador")));
 
-        usuario = this.usuarioRequestToEntity(request);
+        usuario = this.requestToEntity(request);
 
         usuario.setIdUsuario(id);
         usuario.setAdministrador(administrador);
 
-        return this.usuarioToResponse(this.usuarioRepository.save(usuario));
+        return this.entityToResponse(this.usuarioRepository.save(usuario));
     }
 
     @Override
@@ -81,10 +81,10 @@ public class AdministradorService implements IAdministradorService {
 
     @Override
     public UAdministradorResp getById(String id) {
-        return this.usuarioToResponse(this.find(id));
+        return this.entityToResponse(this.find(id));
     }
 
-    private UAdministradorResp usuarioToResponse(Usuario usuario) { 
+    private UAdministradorResp entityToResponse(Usuario usuario) { 
         return UAdministradorResp.builder()
                 .nombre(usuario.getNombre())
                 .apellidos(usuario.getApellidos())
@@ -100,7 +100,7 @@ public class AdministradorService implements IAdministradorService {
                 .build();
     }
 
-    private Usuario usuarioRequestToEntity(UAdministradorReq request) {
+    private Usuario requestToEntity(UAdministradorReq request) {
         Administrador administrador = Administrador.builder().descripcionCargo(request.getDescripcionCargo()).build();
 
         return Usuario.builder()

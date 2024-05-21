@@ -40,7 +40,7 @@ public class ProfesorController {
         private final IProfesorService profesorService;
 
         @GetMapping
-        @Operation(summary = "Obtiene los usuarios de tipo profesor de la plataforma de forma páginada y organizada por orden")
+        @Operation(summary = "Obtiene los usuarios de tipo profesor de la plataforma de forma páginada y organizada por nombre")
         public ResponseEntity<Page<UProfesorResp>> getAll(
                 @RequestParam(defaultValue = "1") int page,
                 @RequestParam(defaultValue = "5") int size,
@@ -54,7 +54,7 @@ public class ProfesorController {
 
         @PostMapping
         @Operation(summary = "Crea un profesor")
-        @ApiResponse(responseCode = "400", description = "Cuando el id no es valido", content = {@Content(mediaType = "appllication/json", schema = @Schema(implementation = ErrorResponse.class))})
+        @ApiResponse(responseCode = "400", description = "Cuando el id no es valido", content = {@Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))})
         public ResponseEntity<UProfesorResp> create(
                 @Validated UProfesorReq request) {
                 return ResponseEntity.ok(this.profesorService.create(request));
@@ -62,7 +62,7 @@ public class ProfesorController {
 
         @PutMapping(path = "/{id}")
         @Operation(summary = "Actualiza un profesor por id")
-        @ApiResponse(responseCode = "400", description = "Cuando el id no es valido", content = {@Content(mediaType = "appllication/json", schema = @Schema(implementation = ErrorResponse.class))})
+        @ApiResponse(responseCode = "400", description = "Cuando el id no es valido", content = {@Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))})
         public ResponseEntity<UProfesorResp> update(
                 @PathVariable String id, @Validated @RequestBody UProfesorReq request) {
                 return ResponseEntity.ok(this.profesorService.update(request, id));
@@ -70,7 +70,7 @@ public class ProfesorController {
 
         @DeleteMapping(path = "/{id}")
         @Operation(summary = "Elimina un profesor por id")
-        @ApiResponse(responseCode = "400", description = "Cuando el id no es valido", content = {@Content(mediaType = "appllication/json", schema = @Schema(implementation = ErrorResponse.class))})
+        @ApiResponse(responseCode = "400", description = "Cuando el id no es valido", content = {@Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))})
         public ResponseEntity<Void> delete(@PathVariable String id) {
                 this.profesorService.delete(id);
 
@@ -79,7 +79,7 @@ public class ProfesorController {
 
         @GetMapping(path = "/{id}")
         @Operation(summary = "Obtiene un profesor por id")
-        @ApiResponse(responseCode = "400", description = "Cuando el id no es valido", content = {@Content(mediaType = "appllication/json", schema = @Schema(implementation = ErrorResponse.class))})
+        @ApiResponse(responseCode = "400", description = "Cuando el id no es valido", content = {@Content(mediaType = "application/json", schema = @Schema(implementation = ErrorResponse.class))})
         public ResponseEntity<UProfesorResp> getById(@PathVariable String id) {
                 return ResponseEntity.ok(this.profesorService.getById(id));
         }
