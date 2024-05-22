@@ -1,8 +1,8 @@
 package com.campusConnect.CampusConnect.domain.entities.fuertes;
 
 import java.math.BigInteger;
+// import java.sql.Date;
 import java.util.Collection;
-import java.util.Date;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -50,7 +50,7 @@ public class Usuario implements UserDetails {
     private BigInteger documento;
 
     @Column(nullable = false)
-    private Date fechaNacimiento;
+    private String fechaNacimiento;
     
     @Column(nullable = false)
     private String correo;

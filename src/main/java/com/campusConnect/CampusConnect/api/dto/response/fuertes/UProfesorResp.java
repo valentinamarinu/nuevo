@@ -1,7 +1,7 @@
 package com.campusConnect.CampusConnect.api.dto.response.fuertes;
 
 import java.math.BigInteger;
-import java.util.Date;
+// import java.util.Date;
 import java.util.List;
 
 import com.campusConnect.CampusConnect.util.enums.Rol;
@@ -22,7 +22,7 @@ public class UProfesorResp {
     private String apellidos;
     private TipoDocumento tipoDocumento;
     private BigInteger documento;
-    private Date fechaNacimiento;
+    private String fechaNacimiento;
     private String correo;
     private String telefono;
     private Rol rol;

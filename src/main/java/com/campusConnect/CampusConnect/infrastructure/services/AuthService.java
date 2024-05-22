@@ -95,12 +95,14 @@ public class AuthService implements IAuthService {
         Usuario usuario = Usuario.builder()
                         .nombre(request.getNombre())
                         .apellidos(request.getApellidos())
+                        .tipoDocumento(request.getTipoDocumento())
                         .documento(request.getDocumento())
                         .fechaNacimiento(request.getFechaNacimiento())
                         .telefono(request.getTelefono())
                         .correo(request.getCorreo())
                         .password(passwordEncoder.encode(request.getPassword())) //guardar la contraseña codificada
-                        .rol(Rol.ADMINISTRADOR)    
+                        .rol(Rol.ADMINISTRADOR)
+                        .foto(request.getFoto())    
                         .administrador(administrador)           
                         .build();
         /* Se Guarda el usuario en la db */
@@ -135,6 +137,7 @@ public class AuthService implements IAuthService {
        Usuario usuario = Usuario.builder()
                         .nombre(request.getNombre())
                         .apellidos(request.getApellidos())
+                        .tipoDocumento(request.getTipoDocumento())
                         .documento(request.getDocumento())
                         .fechaNacimiento(request.getFechaNacimiento())
                         .telefono(request.getTelefono())
@@ -175,6 +178,7 @@ public class AuthService implements IAuthService {
         Usuario usuario = Usuario.builder()
                         .nombre(request.getNombre())
                         .apellidos(request.getApellidos())
+                        .tipoDocumento(request.getTipoDocumento())
                         .documento(request.getDocumento())
                         .fechaNacimiento(request.getFechaNacimiento())
                         .telefono(request.getTelefono())
