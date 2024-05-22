@@ -11,6 +11,7 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import com.campusConnect.CampusConnect.infrastructure.helpers.JwtAuthenticationFilter;
+import com.campusConnect.CampusConnect.util.enums.Rol;
 
 import lombok.AllArgsConstructor;
 
@@ -27,6 +28,9 @@ public class SecurityConfig {
     
     //array de todas las rutas publicas
     private final String[] PUBLIC_RESOURCES = {"/eventos/public/get", "/auth/**"}; /* PENDIENTEEEEEEEEEEE */
+    //Declarar rutas de administrador
+    private final String[] ADMIN_RESOURCES = { "/registro/administrador" };
+    
     //filtros
 
         /*
@@ -37,6 +41,7 @@ public class SecurityConfig {
             return http
                     .csrf(csrf->csrf.disable()) //desabilitar proteccion csrf -> por que es para statelest
                     .authorizeHttpRequests(authRequest-> authRequest //metodo para configurar rutas publicas y privadas y recibe un lambda
+                        .requestMatchers(ADMIN_RESOURCES).hasAuthority(Rol.ADMINISTRADOR.name())
                         .requestMatchers(PUBLIC_RESOURCES).permitAll() //si el request hace match con algo, permitale todo
                         .anyRequest().authenticated() //todo lo que sea diferente a las rutas publicas nesesita autenticacion
                     )

@@ -1,7 +1,7 @@
 package com.campusConnect.CampusConnect.api.dto.response.fuertes;
 
 import java.math.BigInteger;
-import java.sql.Date;
+import java.util.Date;
 
 import com.campusConnect.CampusConnect.util.enums.Rol;
 import com.campusConnect.CampusConnect.util.enums.TipoDocumento;

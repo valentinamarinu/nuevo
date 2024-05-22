@@ -7,6 +7,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.campusConnect.CampusConnect.api.dto.request.LoginReq;
 import com.campusConnect.CampusConnect.api.dto.request.fuertes.UAdministradorReq;
@@ -30,6 +31,7 @@ import com.campusConnect.CampusConnect.util.messages.ErrorMessages;
 
 import lombok.AllArgsConstructor;
 
+@Transactional
 @Service
 @AllArgsConstructor
 public class AuthService implements IAuthService {

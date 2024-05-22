@@ -1,7 +1,7 @@
 package com.campusConnect.CampusConnect.api.dto.request.fuertes;
 
 import java.math.BigInteger;
-import java.sql.Date;
+import java.util.Date;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
