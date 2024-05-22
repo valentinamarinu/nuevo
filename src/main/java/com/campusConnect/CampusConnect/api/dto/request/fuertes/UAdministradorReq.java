@@ -12,10 +12,10 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
+// import jakarta.validation.constraints.NotBlank;
+// import jakarta.validation.constraints.NotNull;
 // import jakarta.validation.constraints.Past;
-import jakarta.validation.constraints.Pattern;
+// import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -27,13 +27,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class UAdministradorReq {
-    @NotBlank(message = "El nombre es requerido.")
+    // @NotNull(message = "El nombre es requerido.")
     private String nombre;
 
-    @NotBlank(message = "Los apellidos son requeridos.")
+    // @NotBlank(message = "Los apellidos son requeridos.")
     private String apellidos;
 
-    @NotBlank(message = "El tipo de documento es requerido.")
+    // @NotBlank(message = "El tipo de documento es requerido.")
     private TipoDocumento tipoDocumento;
 
     @Min(value = 10000000, message = "El número del documento de identificación no debe ser menor 8 dígitos")
@@ -43,7 +43,7 @@ public class UAdministradorReq {
     // @DateTimeFormat(pattern = "yyyy-MM-dd")
     // @Pattern(regexp = "^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])", message = "La fecha de nacimiento debe tener el formato YYYY-MM-DD.")
     // @Past(message = "La fecha de nacimiento no puede ser una fecha futura.")
-    @NotNull(message = "La fecha de nacimiento es obligatoria.")
+    // @NotNull(message = "La fecha de nacimiento es obligatoria.")
     private String fechaNacimiento;
 
     @Email(message = "El email ingresado no es válido.")
@@ -53,19 +53,19 @@ public class UAdministradorReq {
     @Size(min = 10, max = 20, message = "El teléfono debe tener entre 10 y 20 caracteres.")
     private String telefono;
 
-    @NotNull(message = "El rol es requerido.")
+    // @NotNull(message = "El rol es requerido.")
     private Rol rol;
 
     /* Evita que la contraseña se exponga en las respuestas JSON, protegiendo la información confidencial. */
     @JsonIgnoreProperties(value = {"password"})
     @Size(min = 8, max = 64, message = "La contraseña debe ser de 8 o más caracteres, y menor o igual a 64 caracteres.")
-    @Pattern(regexp = "^(?=.[a-z])(?=.[A-Z])(?=.[0-9])(?=.[$#@]).*$", message = "La contraseña debe ser una combinación de letras mayúsculas, minúsculas, números y caracteres especiales." )
+    // @Pattern(regexp = "^(?=.[a-z])(?=.[A-Z])(?=.[0-9])(?=.[$#@]).*$", message = "La contraseña debe ser una combinación de letras mayúsculas, minúsculas, números y caracteres especiales." )
     private String password;
 
     /* PENDIENTEEEEEEEEEEEEEEEEEE */
     private String foto;
 
-    @NotNull(message = "La descripción del cargo es obligatoria.")
+    // @NotNull(message = "La descripción del cargo es obligatoria.")
     private String descripcionCargo;
 
 }

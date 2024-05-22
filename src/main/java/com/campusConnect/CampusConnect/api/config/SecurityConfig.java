@@ -27,7 +27,7 @@ public class SecurityConfig {
     private final JwtAuthenticationFilter jwtAuthenticationFilter;
     
     //array de todas las rutas publicas
-    private final String[] PUBLIC_RESOURCES = {"/auth/**","api/v1/**"}; /* PENDIENTEEEEEEEEEEE */
+    private final String[] PUBLIC_RESOURCES = {"/auth/**","api/v1/**","/**","http://localhost:8080/api/v1/swagger-ui/index.html"}; /* PENDIENTEEEEEEEEEEE */
     //Declarar rutas de administrador
     //private final String[] ADMIN_RESOURCES = { "/administrador/**" };
     
